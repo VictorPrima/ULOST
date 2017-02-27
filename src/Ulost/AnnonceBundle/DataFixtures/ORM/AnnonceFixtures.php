@@ -25,7 +25,7 @@ class AnnonceFixtures implements FixtureInterface
         $arrayObject = [$object1,$object2,$object3];
         $marque1 = 'Apple';
         $marque2 = 'Samsung';
-        $marque3 = 'Sony';
+        $marque3 = 'SonyEricson';
         $arrayMarque = [$marque1, $marque2, $marque3];
         $modele1 = 'iPhone 4';
         $modele2 = 'iPhone 5';
