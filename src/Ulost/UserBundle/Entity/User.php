@@ -6,6 +6,7 @@ namespace Ulost\UserBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Ulost\AnnonceBundle\Entity\Annonce;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="Ulost\UserBundle\Repository\UserRepository")
@@ -57,7 +58,8 @@ class User extends BaseUser
 
     /**
      * @var string
-     *
+     * @Assert\Length(min = 8, max = 20, minMessage = "min_lenght", maxMessage = "max_lenght")
+     * @Assert\Regex(pattern="/^\+33\(0\)[0-9]*$", message="number_only")
      * @ORM\Column(name="phone", type="string", nullable=true)
      */
     protected $phone;
@@ -133,7 +135,7 @@ class User extends BaseUser
     protected $grade;
 
     /**
-     * 
+     *
      * @ORM\OneToMany(targetEntity="Ulost\MunicipaleBundle\Entity\Emploi", mappedBy="user", cascade={"persist"})
      *
      */
