@@ -58,8 +58,8 @@ class User extends BaseUser
 
     /**
      * @var string
-     * @Assert\Length(min = 8, max = 20, minMessage = "min_lenght", maxMessage = "max_lenght")
-     * @Assert\Regex(pattern="/^\+33\(0\)[0-9]*$", message="number_only")
+     * @Assert\Length(min = 8, max = 20)
+     * @Assert\Regex(pattern="#^0[1-68][0-9]{8}$#")
      * @ORM\Column(name="phone", type="string", nullable=true)
      */
     protected $phone;
