@@ -55,6 +55,7 @@ class ProfilController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Vos informations personnelles ont été modifiées');
 
+            return $this->redirectToRoute('ulost_user_profil');
         }
 
         return $this->render('UlostUserBundle:Profil:edit.html.twig', array(
