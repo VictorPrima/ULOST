@@ -1,8 +1,19 @@
+ulost_faq:
+    path: /FAQ
+    defaults: { _controller: UlostCoreBundle:Home:indexFaq}
+
+ulost_add_faq:
+    path: /FAQ/add
+    defaults: { _controller: UlostCoreBundle:Home:addFaq}
+
+
 ulost_annonce_new:
     path:     /{perdu_trouve}
     defaults: { _controller: UlostCoreBundle:Advert:objet }
     requirements:
         "perdu_trouve": "perdu|trouvé"
+
+
 
 ulost_annonce_details:
     path:     /{perdu_trouve}/{id}
