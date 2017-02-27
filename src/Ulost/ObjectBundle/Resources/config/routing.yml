@@ -1,0 +1,97 @@
+ulost_index_category:
+    path : /
+    defaults: { _controller: UlostObjectBundle:Object:indexCategory }
+
+
+ulost_add_category:
+    path : /addCategory
+    defaults: { _controller: UlostObjectBundle:Object:addCategory }
+
+
+ulost_edit_category:
+    path : /editCategory/{id}
+    defaults: { _controller: UlostObjectBundle:Object:editCategory}
+    requirements:
+          id:     \d+
+
+ulost_remove_category:
+    path : /removeCategory/{id}
+    defaults: { _controller: UlostObjectBundle:Object:removeCategory}
+    requirements:
+          id:     \d+
+
+
+
+
+
+
+
+ulost_view_object:
+    path:     /{id}
+    defaults: { _controller: UlostObjectBundle:Object:viewObject }
+    requirements:
+        id:     \d+
+
+ulost_add_object:
+    path : /addObject/{id}
+    defaults: { _controller: UlostObjectBundle:Object:addObject}
+    requirements:
+            id:     \d+
+
+ulost_edit_object:
+    path : /{id}/editObject
+    defaults: { _controller: UlostObjectBundle:Object:editObject}
+    requirements:
+          id:     \d+
+ulost_remove_object:
+    path : /removeObject/{id}
+    defaults: { _controller: UlostObjectBundle:Object:removeObject}
+    requirements:
+          id:     \d+
+
+
+
+
+ulost_add_question:
+    path : /{id}/addQuestion
+    defaults: { _controller: UlostObjectBundle:Object:addQuestion}
+    requirements:
+          id:     \d+
+
+ulost_edit_question:
+    path : /editQuestion/{id}
+    defaults: { _controller: UlostObjectBundle:Object:editQuestion}
+    requirements:
+          id:     \d+
+
+ulost_remove_question:
+    path : /removeQuestion/{id}
+    defaults: { _controller: UlostObjectBundle:Object:removeQuestion}
+    requirements:
+          id:     \d+
+
+ulost_edit_question_and_alternatives:
+    path: /editQuestionAlternatives/{id}
+    defaults: { _controller: UlostObjectBundle:Object:editQuestionAlternatives}
+    requirements:
+          id:     \d+
+
+
+
+ulost_add_alternative:
+    path : /addAlternative/{id}
+    defaults: { _controller: UlostObjectBundle:Object:addAlternative}
+    requirements:
+          id:     \d+
+
+ulost_edit_alternative:
+    path : /editAlternative/{id}
+    defaults: { _controller: UlostObjectBundle:Object:editAlternative}
+    requirements:
+          id:     \d+
+
+ulost_remove_alternative:
+    path : /removeAlternative/{id}
+    defaults: { _controller: UlostObjectBundle:Object:removeAlternative}
+    requirements:
+          id:     \d+

@@ -1,0 +1,44 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/Stock/objet.html.twig #}
+   
+
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+	{% block Municipale_body %}
+
+	<h1> Faire une recherche </h1>
+	
+		{% for flash_message in app.session.flashbag.get('notice') %}
+		<div class="flash-notice">
+			{{ flash_message }}
+		</div>
+	{% endfor %}
+	
+	<a href="{{ path('ulost_municipale_stockpage') }}" class="button"> Retour au Stock </a>
+	
+	
+	<div class="banniere"> 
+		<p>Cliquez sur un objet pour voir toutes les annonces de cet objet</p>
+	</div>
+	
+	<div class="card">
+		<form action="#" method="POST">
+			
+			<div class="controls">
+				<h1> Chercher une annonce </h1>
+				<input type="text" name="id" placeholder="numéro de l'annonce"> 
+			</div>
+			<button type="submit" name="validate" value="ok"> OK </button>
+		</form>
+	</div>
+	
+   <div class="card">
+	{% for objet in listeobjet %}
+			<a href="{{path('ulost_municipale_stock_objet', {'objet':objet.url})}}" > 
+				<img
+					src="{{ asset('images/objet/'~objet.url~'.png') }}" 
+					width="50" height="50" alt="{{ objet.nom }}" />
+			</a>	
+
+	{% endfor %}
+</div>
+
+	{% endblock %}

@@ -1,0 +1,36 @@
+<div >
+    <table id="reponses" >
+        <tr>
+            <th>Question</th>
+            <th>Réponse</th>
+        </tr>
+        {% for reponse in listReponses %}
+            <tr>
+                <td>
+                    <h5>{{ reponse.question.name }}</h5>
+                </td>
+                <td>
+                    <h4>{{ render(controller("UlostAnnonceBundle:Annonce:showReponse", {"reponse":reponse})) }}</h4>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+<style>
+    table,td,th {
+        border:solid 1px #f5f5f5;
+
+        text-align: center;
+
+
+    }
+    #reponses{
+        margin-left: 10%;
+        margin-right: 10%;
+        width: 75%
+    }
+
+</style>

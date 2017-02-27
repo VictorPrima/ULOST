@@ -1,0 +1,19 @@
+{# src/Ulost/UserBundle/Resources/views/Advert/perdu.html.twig #}
+{% extends "UlostUserBundle::layout.html.twig" %}
+{% block User_body %}
+
+
+<p> toutes les annonces d'objets perdus </p>
+<ul>
+	{% for annonce in annonces %}
+		<li>
+			<a href="{{path('ulost_user_details_annonce', { 'id_annonce': annonce.id })}}">
+				détails
+			</a> 
+			{{ annonce.objet }}  à {{annonce.ville}}
+		</li>
+		
+	{% endfor %}
+</ul>
+
+{% endblock %}

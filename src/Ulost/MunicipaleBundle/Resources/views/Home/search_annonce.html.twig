@@ -1,0 +1,26 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/Home/search_annonce.html.twig #}
+
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+	{% block Municipale_body %}
+
+
+	
+	 <a href="{{ path('ulost_municipale_annonces_ville') }}" class="button"> Retour aux Annonces </br>de la Ville </a>
+
+	<div class="banniere"> 
+		<p> Indiquez le numéro de l'annonce </p>
+	</div>	 
+<div class="card">
+	<form action="{{ path('ulost_municipale_une_annonce_search_ville') }}" method="POST">
+		
+		<div class="controls">
+			<h1> Chercher une annonce </h1>
+			<input type="text" name="id_annonce" placeholder="numéro de l'annonce"> 
+		</div>
+		<button type="submit" name="validate" value="ok"> OK </button>
+	</form>
+</div>
+</br>
+
+
+{% endblock %}

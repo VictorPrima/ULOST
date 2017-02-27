@@ -1,0 +1,31 @@
+{# UlostMunicipaleBundle/Resources/views/layout.html.twig #}
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+    {% if app.user %}
+        Connecté en tant que  {{ app.user.username }}
+    {% endif %}
+
+    <div id="sidebar">
+        {% block sidebar %}
+            {#{% include 'UlostMunicipaleBundle:Home:menu.html.twig' %}#}
+        {% endblock %}
+    </div>
+
+    {% for flash_message in app.session.flashbag.get('notice') %}
+        <div class="flash-notice">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+    {% block Municipale_body %}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+    {% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+    {{ parent() }}
+{% endblock %}

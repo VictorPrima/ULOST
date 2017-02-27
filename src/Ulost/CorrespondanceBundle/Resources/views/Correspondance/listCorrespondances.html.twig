@@ -1,0 +1,54 @@
+
+
+
+{% if pagination.getTotalItemCount == 0 %}
+    <div>
+        Il n'y a pas de correspondances à afficher
+    </div>
+{% else %}
+
+    <div>
+    {% if annonceParent is defined and annonceParent is not empty %}
+        Distance minimale : {{ render(controller("UlostCorrespondanceBundle:Correspondance:showDistanceMin", {'annonce':annonceParent})) }}
+    {% endif %}
+        </div>
+        <table>
+            <tr>
+                <th>
+                    <div class="count">
+                        {{ 'Nombre de correspondances total : ' }} {{ pagination.getTotalItemCount }}
+                    </div>
+                </th>
+
+                <table>
+                    <tr>
+                        {# sorting of properties based on query components #}
+                        <th>{{ knp_pagination_sortable(pagination, 'Id', 'c.id') }}</th>
+                        <th{% if pagination.isSorted('o.typeObjet') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Type d\'objet', 'o.typeObjet') }}</th>
+                        <th{% if pagination.isSorted('c.date') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Date de publication', 'a.date') }}</th>
+                        <th{% if pagination.isSorted('v.name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Ville', 'v.name') }}</th>
+                        <th{% if pagination.isSorted('c.confirmed') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Confirmée', 'c.confirmed') }}</th>
+                        <th>Distance</th>
+                    </tr>
+                    {# table body #}
+                    {% for correspondance in pagination %}
+                        <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <tr>
+                            {% if annonceParent is defined and annonceParent is not empty %}
+                                {{ render(controller("UlostCorrespondanceBundle:Correspondance:showMetaCorrespondance", {'id':correspondance.id, "annonceParent":annonceParent})) }}
+                            {% else %}
+                                {{ render(controller("UlostCorrespondanceBundle:Correspondance:showMetaCorrespondance", {'id':correspondance.id, "annonceParent":correspondance.found.first})) }}
+                            {% endif %}
+
+                        </tr>
+                        </tr>
+                    {% endfor %}
+                </table>
+                {# display navigation #}
+                <div class="navigation">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </tr>
+        </table>
+
+    {% endif %}

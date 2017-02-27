@@ -1,0 +1,46 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+{% block Core_body %}
+
+
+
+
+    <div>
+        <div>
+            <a href="{{ path('ulost_index_service') }}" class="button">Retour</a>
+        </div>
+
+        <a href="{{ path('ulost_index_emplacements_principaux', {'id':service.id}) }}" class="button">Gestion des
+            emplacements</a>
+        <a href="{{ path('ulost_edit_service', {'id':service.id}) }}" class="button">Modifier le service</a>
+
+    </div>
+    <div>
+
+        <h1>Liste des emplois du service {{ service.name }}</h1>
+        <div><a href="{{ path('ulost_add_emploi', {'id':service.id}) }}" class="button">Ajouter un emploi</a></div>
+        <table>
+
+            <tr>
+                {{ render(controller("UlostMunicipaleBundle:Emploi:indexEmploiByService", {'id': service.id})) }}
+            </tr>
+
+
+        </table>
+        <h1>Liste des villes gérées par le service {{ service.name }}</h1>
+        <div>
+            <a href="{{ path('ulost_add_villeServiceRelation', {'id':service.id}) }}" class="button">Ajouter une
+                ville</a>
+        </div>
+
+        <table>
+
+            <tr>
+                {{ render(controller("UlostVilleBundle:VilleServiceRelation:indexVilleByService", {'id': service.id})) }}
+            </tr>
+
+
+        </table>
+    </div>
+    {# display navigation #}
+
+{% endblock %}

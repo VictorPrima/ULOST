@@ -1,0 +1,49 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+{% block Core_body %}
+
+    <div class="recapitulatif">
+        <p><strong>Recapitulatif de l'annonce </strong>
+            {% if annonce.status is defined and annonce.status is not empty %} ( {{ annonce.status }} ){% endif %}
+        </p>
+        {% if annonce.object is defined and annonce.object is not empty %}
+            {% if  annonce.imageAnnonce is defined and annonce.imageAnnonce is not empty %}
+              <div>
+                  {{ render(controller("UlostAnnonceBundle:Annonce:showImageByAnnonce", {'annonce': annonce})) }}
+              </div>
+                  {% endif %}
+        {% endif %}
+        {{ annonce.object.typeObjet }}
+        {{ annonce.object.category.name }}
+        <div>
+            {% if annonce.ville is defined and annonce.ville is not empty %}
+                {{ annonce.ville.name }}
+                {{ annonce.ville.departement.name }}
+                {{ annonce.ville.departement.code }}
+                {{ annonce.ville.departement.region.name }}
+            {% else %}
+                {{ "Pas de ville" }}
+            {% endif %}
+        </div>
+        <p>
+            {% for reponse in annonce.reponses %}
+        <div>
+            {{ reponse.question.name }}{{ " : " }} {{ render(controller("UlostAnnonceBundle:Annonce:showReponse", {"reponse":reponse})) }}
+        </div>
+        {% endfor %}
+        </p>
+    </div>
+
+    {% if annonce.parent is defined and annonce.parent is not empty %}
+        <div>
+            Cette annonce est liée à un autre objet de type {{ annonce.parent.object.typeObjet }}
+        </div>
+    {% endif %}
+    <div>
+        <a href="{{ path('ulost_annonce_enfant', {'id': annonce.id}) }}" class="button">{{ "Lier une annonce" }}</a>
+    </div>
+    <div>
+        <a href="{{ path("ulost_Correspondance1", {'id': annonce.id}) }}" class="button">Chercher les
+            correspondances</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+
+{% extends "UlostAdminBundle::layout.html.twig" %}
+{% block Core_body %}
+
+<h1>liste des utilisateurs  </h1>
+    <table>
+		<tr>
+			<td> id </td>
+			<td> nom </td> 
+			<td> mail </td>
+			<td> role </td>
+			<td> last login </td>
+		<tr>
+	{% for user in listUsers %}
+		<tr>
+			<td> {{ user.id }} </td>
+			<td> {{ user.username }} </td>
+			<td> {{ user.email }} </td>
+			<td>  {{ user.getRoles[0] }} </td>
+			<td> {{ user.lastLogin|date('Y-m-d H:i:s') }} </td>
+		{% if is_granted('ROLE_ADMIN') %}
+			<td><a href="{{ path('ulost_edit_user', {'id':user.id}) }}" class="button">Modifier l'utilisateur</a></td>
+		{% endif %}
+		</tr>			
+	{% endfor %}
+	</table>
+
+
+{% endblock %}

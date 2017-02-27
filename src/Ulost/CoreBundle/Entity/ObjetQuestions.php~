@@ -1,0 +1,93 @@
+<?php
+//src/Ulost/CoreBundle/Entity/ObjetQuestions.php;
+
+namespace Ulost\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="Ulost\CoreBundle\Entity\ObjetQuestionsRepository")
+ */
+class ObjetQuestions
+{
+	/**
+   * @ORM\Column(name="id", type="integer")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  private $id;
+
+    /**
+   * @ORM\ManyToOne(targetEntity="Ulost\CoreBundle\Entity\Objet")
+   * @ORM\JoinColumn(nullable=false)
+   */
+
+  private $objet;
+	 
+    /**
+   * @ORM\ManyToOne(targetEntity="Ulost\CoreBundle\Entity\Questions")
+   * @ORM\JoinColumn(nullable=false)
+   */
+
+  private $questions;
+	
+	
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set objet
+     *
+     * @param \Ulost\CoreBundle\Entity\Objet $objet
+     *
+     * @return ObjetQuestions
+     */
+    public function setObjet(\Ulost\CoreBundle\Entity\Objet $objet)
+    {
+        $this->objet = $objet;
+
+        return $this;
+    }
+
+    /**
+     * Get objet
+     *
+     * @return \Ulost\CoreBundle\Entity\Objet
+     */
+    public function getObjet()
+    {
+        return $this->objet;
+    }
+
+    /**
+     * Set questions
+     *
+     * @param \Ulost\CoreBundle\Entity\Questions $questions
+     *
+     * @return ObjetQuestions
+     */
+    public function setQuestions(\Ulost\CoreBundle\Entity\Questions $questions)
+    {
+        $this->questions = $questions;
+
+        return $this;
+    }
+
+    /**
+     * Get questions
+     *
+     * @return \Ulost\CoreBundle\Entity\Questions
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
+    }
+}

@@ -1,0 +1,15 @@
+<?php
+// AppBundle/Form/Type/VilleFormType.php
+
+// ...
+
+class AuthorFormType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            // for Symfony 2, use 'autocomplete' as second argument
+            ->add('ville', 'PUGX\AutocompleterBundle\Form\Type\AutocompleteType', array('class' => 'AppBundle:Book'))
+        ;
+    }
+}

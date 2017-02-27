@@ -1,0 +1,258 @@
+<?php
+// src/MunicipaleBundle/Entity/Service.php
+
+namespace Ulost\MunicipaleBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="service")
+ */
+class Service
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var string
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Ulost\MunicipaleBundle\Entity\Emploi", mappedBy="service", cascade={"persist", "remove"})
+     */
+    private $emplois;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Ulost\VilleBundle\Entity\VilleServiceRelation", mappedBy="service", cascade={"persist", "remove"})
+     */
+    private $villeServiceRelations;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Ulost\VilleBundle\Entity\Ville", inversedBy="services", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $ville;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Ulost\MunicipaleBundle\Entity\Emplacement", mappedBy="service", cascade={"persist", "remove"})
+     */
+    private $emplacements;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Ulost\MunicipaleBundle\Entity\Stock", mappedBy="service", cascade={"persist", "remove"})
+     */
+    private $stocks;
+   
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->emplois = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->villeServiceRelations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->stocks = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Service
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Add emplois
+     *
+     * @param \Ulost\MunicipaleBundle\Entity\Emploi $emplois
+     *
+     * @return Service
+     */
+    public function addEmplois(\Ulost\MunicipaleBundle\Entity\Emploi $emplois)
+    {
+        $this->emplois[] = $emplois;
+
+        return $this;
+    }
+
+    /**
+     * Remove emplois
+     *
+     * @param \Ulost\MunicipaleBundle\Entity\Emploi $emplois
+     */
+    public function removeEmplois(\Ulost\MunicipaleBundle\Entity\Emploi $emplois)
+    {
+        $this->emplois->removeElement($emplois);
+    }
+
+    /**
+     * Get emplois
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEmplois()
+    {
+        return $this->emplois;
+    }
+
+    /**
+     * Add villeServiceRelation
+     *
+     * @param \Ulost\VilleBundle\Entity\VilleServiceRelation $villeServiceRelation
+     *
+     * @return Service
+     */
+    public function addVilleServiceRelation(\Ulost\VilleBundle\Entity\VilleServiceRelation $villeServiceRelation)
+    {
+        $this->villeServiceRelations[] = $villeServiceRelation;
+
+        return $this;
+    }
+
+    /**
+     * Remove villeServiceRelation
+     *
+     * @param \Ulost\VilleBundle\Entity\VilleServiceRelation $villeServiceRelation
+     */
+    public function removeVilleServiceRelation(\Ulost\VilleBundle\Entity\VilleServiceRelation $villeServiceRelation)
+    {
+        $this->villeServiceRelations->removeElement($villeServiceRelation);
+    }
+
+    /**
+     * Get villeServiceRelations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVilleServiceRelations()
+    {
+        return $this->villeServiceRelations;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param \Ulost\VilleBundle\Entity\Ville $ville
+     *
+     * @return Service
+     */
+    public function setVille(\Ulost\VilleBundle\Entity\Ville $ville = null)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return \Ulost\VilleBundle\Entity\Ville
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Add stock
+     *
+     * @param \Ulost\MunicipaleBundle\Entity\Stock $stock
+     *
+     * @return Service
+     */
+    public function addStock(\Ulost\MunicipaleBundle\Entity\Stock $stock)
+    {
+        $this->stocks[] = $stock;
+
+        return $this;
+    }
+
+    /**
+     * Remove stock
+     *
+     * @param \Ulost\MunicipaleBundle\Entity\Stock $stock
+     */
+    public function removeStock(\Ulost\MunicipaleBundle\Entity\Stock $stock)
+    {
+        $this->stocks->removeElement($stock);
+    }
+
+    /**
+     * Get stocks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getStocks()
+    {
+        return $this->stocks;
+    }
+
+    /**
+     * Add emplacement
+     *
+     * @param \Ulost\MunicipaleBundle\Entity\Emplacement $emplacement
+     *
+     * @return Service
+     */
+    public function addEmplacement(\Ulost\MunicipaleBundle\Entity\Emplacement $emplacement)
+    {
+        $this->emplacements[] = $emplacement;
+
+        return $this;
+    }
+
+    /**
+     * Remove emplacement
+     *
+     * @param \Ulost\MunicipaleBundle\Entity\Emplacement $emplacement
+     */
+    public function removeEmplacement(\Ulost\MunicipaleBundle\Entity\Emplacement $emplacement)
+    {
+        $this->emplacements->removeElement($emplacement);
+    }
+
+    /**
+     * Get emplacements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEmplacements()
+    {
+        return $this->emplacements;
+    }
+}

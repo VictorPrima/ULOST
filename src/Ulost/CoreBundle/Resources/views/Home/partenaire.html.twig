@@ -1,0 +1,33 @@
+{# Ulost/AnnonceBundle/Resources/views/Home/partenaire.html.twig #}
+
+{% extends "UlostCoreBundle::layout.html.twig" %}
+
+	{% block Core_body %}
+
+	<div class="banniere">
+		<p> Ulost est une plateforme collaborative gratuite permettant 
+		de mettre en relation les particuliers et les services d'objets trouvés
+pour restituer les objets perdus. </br>
+Plus de détails <a href=" {{path('ulost_faq')}}">ici </a></p>
+	</div>
+	
+<div class="fiche_partenaire">	
+	<h1 class="text_blanc"> Envie de devenir partenaire ? </br> 
+	
+	{% image '@UlostCoreBundle/Resources/public/images/people.png' %}
+		<img src="{{ asset_url }}" class="partenariat" />
+	{% endimage %}
+	{% image '@UlostCoreBundle/Resources/public/images/people-2.png' %}
+			<img src="{{ asset_url }}" class="partenariat" />
+	{% endimage %}
+	
+	
+	</br>Contactez nous !! </h1>
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+
+	{{ form_end(form) }}
+</div>
+
+{% endblock %}
+

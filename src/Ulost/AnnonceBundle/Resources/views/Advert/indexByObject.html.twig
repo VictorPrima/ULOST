@@ -1,0 +1,11 @@
+{# src/Ulost/AdminBundle/Resources/views/Objet/index.html.twig #}
+
+{% extends "UlostAnnonceBundle::layout.html.twig" %}
+
+{% block Core_body %}
+
+    <h2>Liste des annonces du type {{ object.typeObjet }} </h2>
+
+    {{ include("UlostAnnonceBundle:Advert:showall.html.twig") }}
+
+{% endblock %}

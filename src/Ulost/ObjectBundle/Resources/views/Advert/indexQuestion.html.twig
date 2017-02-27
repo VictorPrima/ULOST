@@ -1,0 +1,39 @@
+{% for question in listQuestion %}
+    <tr>
+        <td>
+            {{ question.id }}
+        </td>
+        <td>
+            {{ question.ordre }}
+        </td>
+        <td>
+
+            {{ question.coefficient }}
+        </td>
+        <td>
+            <strong>
+                {{ question.name }}
+            </strong>
+        </td>
+        <td>
+            {{ question.typeQuestion }}
+        </td>
+        <td>
+            {% if question.obligatoire==1 %}
+                oui
+            {% else %}
+                non
+            {% endif %}
+        </td>
+        <td>
+            <a href="{{ path('ulost_edit_question', {'id':question.id}) }}" class="button">Modifier</a>
+        </td>
+
+        {% if question.typeQuestion=="option" or question.typeQuestion=="multipleChoice" %}
+             <td>
+
+                {{ render(controller("UlostObjectBundle:Object:indexAlternativeByQuestion", {'id': question.id})) }}
+            </td>
+        {% endif %}
+    </tr>
+{% endfor %}

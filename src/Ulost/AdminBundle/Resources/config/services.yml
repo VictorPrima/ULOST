@@ -1,0 +1,12 @@
+services:
+#    ulost_admin.example:
+#        class: UlostAdminBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+   ObjetAction:
+        class: Ulost\CoreBundle\Controller\ObjetController
+        calls:
+                    - [setContainer, ["@service_container"]]
+   UserAction:
+        class: Ulost\UserBundle\Controller\ProfilController
+        calls:
+                    - [setContainer, ["@service_container"]]

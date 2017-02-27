@@ -1,0 +1,77 @@
+<h1>{{ question.question }}</h1>
+</br>
+	
+	{% if question.rep1 is not empty %}
+		<div class="radio">
+			<label class="radio">{{ question.rep1 }}	</label>
+			<input type="radio" name="question{{ num }}" value="{{ question.question}} : {{ question.rep1 }}" id="radio-1" checked> 
+		</div>
+	{% endif %}
+	
+	{% if question.rep2 is not empty %}
+		<div class="radio">
+			<label class="radio">{{ question.rep2 }}	</label>
+			<input type="radio" name="question{{ num }}" value="{{ question.question}} : {{ question.rep2 }}" id="radio-1" > 
+		</div>
+	{% endif %}
+	
+	{% if question.rep3 is not empty %}
+		<div class="radio">
+			<label class="radio">{{ question.rep3 }}	</label>
+			<input type="radio" name="question{{ num }}" value="{{ question.question}} : {{ question.rep3 }}" id="radio-1" > 
+		</div>
+	{% endif %}
+	
+	{% if question.rep4 is not empty %}
+		<div class="radio">
+			<label class="radio">{{ question.rep4 }}	</label>
+			<input type="radio" name="question{{ num }}" value="{{ question.question}} : {{ question.rep4 }}" id="radio-1" > 
+		</div>
+	{% endif %}
+	
+	{% if question.rep5 is not empty %}
+		<div class="radio">
+			<label class="radio">{{ question.rep5 }}	</label>
+			<input type="radio" name="question{{ num }}" value="{{ question.question}} : {{ question.rep5 }}" id="radio-1" > 
+		</div>
+	{% endif %}
+	
+	{% if question.rep6 is not empty %}
+		<div class="radio">
+			<label class="radio">{{ question.rep6 }}	</label>
+			<input type="radio" name="question{{ num }}" value="{{ question.question}} : {{ question.rep6 }}" id="radio-1" > 
+		</div>
+	{% endif %}
+	
+	{% if question.rep7 is not empty %}
+		<div class="radio">
+			<label class="radio">{{ question.rep7 }}	</label>
+			<input type="radio" name="question{{ num }}" value="{{ question.question}} : {{ question.rep7 }}" id="radio-1" > 
+		</div>
+	{% endif %}
+	
+	{% if question.rep8 is not empty %}
+		<div class="radio">
+			<label class="radio">{{ question.rep8 }}	</label>
+			<input type="radio" name="question{{ num }}" value="{{ question.question}} : {{ question.rep8 }}" id="radio-1" > 
+		</div>
+	{% endif %}
+	
+	{% if question.rep9 is not empty %}
+		<div class="radio">
+			<label class="radio">{{ question.rep9 }}	</label>
+			<input type="radio" name="question{{ num }}" value="{{ question.question}} : {{ question.rep9 }}" id="radio-1" > 
+		</div>
+	{% endif %}
+	
+	{% if question.rep10 is not empty %}
+		<div class="radio">
+			<label class="radio">{{ question.rep10 }}	</label>
+			<input type="radio" name="question{{ num }}" value="{{ question.question}} : {{ question.rep10 }}" id="radio-1"> 
+		</div>
+	{% endif %}
+		
+		<div class="radio">
+			<label class="check-11"> Autre </label>
+			<input type="radio" name="question{{ num }}" value="{{ question.question}} : autre" id="check_11">
+		</div>

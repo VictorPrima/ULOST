@@ -1,0 +1,22 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+{% block Core_body %}
+
+    <div>
+        <a href="{{ path('ulost_view_service', {'id':emplacement.service.id}) }}" class="button">{{ "Service : " }}{{  emplacement.service.name }}</a>
+    </div>
+    <div>
+        <h1>{{ "Emplacement actuel : " }}{{ emplacement.type }}{{ " " }}{{ emplacement.name }}</h1>
+    </div>
+    {% if emplacement.parent is defined and emplacement.parent is not empty %}
+        <a href="{{ path('ulost_view_emplacement', {'id':emplacement.parent.id}) }}" class="button">Retourner à l'emplacement parent</a>
+        {% else %}
+            <a href="{{ path('ulost_index_emplacements_principaux', {'id':emplacement.service.id}) }}" class="button">Voir les emplacements principaux</a>
+    {% endif %}
+    <a href="{{ path('ulost_add_emplacement', {'id':emplacement.id}) }}" class="button">Ajouter un emplacement</a>
+    <a href="{{ path('ulost_edit_emplacement', {'id':emplacement.id}) }}" class="button">Modifier l'emplacement</a>
+
+
+
+        {{ render(controller('UlostMunicipaleBundle:Emplacement:indexEnfants', {'id':emplacement.id} )) }}
+
+{% endblock %}

@@ -1,0 +1,304 @@
+{% extends "UlostCoreBundle::layout.html.twig" %}
+	{% block Core_body %}
+
+        <div>
+            <button class="accordion" id="Accordeon1">{{ "Accordeon" }}</button>
+            <div class="panel">
+
+                <div class="coverflow" id="coverflow" name="coverflow">
+                    <div class="covers">
+                        <ul>
+                            <li>
+                                <div class="imgdiv">
+
+                                    <img src="{{ asset('images/img/01-tunnel.jpg') }}" alt="">
+
+                                </div>
+                                <div class="text">
+                                    <p>The text and images are easily indexed by search engines</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="{{ asset('images/img/02-couple.jpg') }}" data-gallery="gallery"
+                                       data-cap="lightbox caption 02">
+                                        {% image '@UlostCoreBundle/Resources/public/images/img/02-couple.jpg' %}
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" width="250px"/>
+                                        {% endimage %}
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>The text over the images is optional <br> and it is <span
+                                                style="color: #f55; font-weight: bold; font-size: 20px;">CSS</span><span
+                                                style="color: yellow; font-style: italic;">formatted</span></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/03-bridge.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 03">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>You can also have <a href="http://www.example.com" target="_blank"
+                                                            style="color: #00a;">links</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a>
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/05-camera.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 05">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>This is a new CSS Jquery Coverflow.</p>
+                                    <p>Install it for free on your website</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/06-free.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 06">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>Works great on iPhone and iPad</p>
+                                    <p>with tap and swipe movements</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/07-joy.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 07">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>The Coverflow is responsive</p>
+                                    <p>Narrow the width of your browser to see</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/08-feet.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 08">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>Clicking on this image</p>
+                                    <p>Will open a lightbox with a bigger image</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="http://www.example.com" target="_blank">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>Clicking on this image</p>
+                                    <p>Will take you to an external link</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/10-beach.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 10">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>But it could also take you to a link inside your web page</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="Controller"></div>
+                    <div class="ScrollBar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button class="accordion" id="Accordeon2">{{ "Accordeon2" }}</button>
+            <div class="panel">
+
+                <div class="coverflow" id="coverflow2" name="coverflow2">
+                    <div class="covers">
+                        <ul>
+                            <li>
+                                <div class="imgdiv">
+
+                                    <img src="{{ asset('images/img/01-tunnel.jpg') }}" alt="">
+
+                                </div>
+                                <div class="text">
+                                    <p>The text and images are easily indexed by search engines</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="{{ asset('images/img/02-couple.jpg') }}" data-gallery="gallery"
+                                       data-cap="lightbox caption 02">
+                                        {% image '@UlostCoreBundle/Resources/public/images/img/02-couple.jpg' %}
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" width="250px"/>
+                                        {% endimage %}
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>The text over the images is optional <br> and it is <span
+                                                style="color: #f55; font-weight: bold; font-size: 20px;">CSS</span><span
+                                                style="color: yellow; font-style: italic;">formatted</span></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/03-bridge.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 03">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>You can also have <a href="http://www.example.com" target="_blank"
+                                                            style="color: #00a;">links</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a>
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/05-camera.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 05">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>This is a new CSS Jquery Coverflow.</p>
+                                    <p>Install it for free on your website</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/06-free.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 06">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>Works great on iPhone and iPad</p>
+                                    <p>with tap and swipe movements</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/07-joy.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 07">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>The Coverflow is responsive</p>
+                                    <p>Narrow the width of your browser to see</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/08-feet.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 08">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>Clicking on this image</p>
+                                    <p>Will open a lightbox with a bigger image</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="http://www.example.com" target="_blank">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>Clicking on this image</p>
+                                    <p>Will take you to an external link</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imgdiv">
+                                    <a href="coverflow/img/10-beach.jpg" data-gallery="gallery"
+                                       data-cap="lightbox caption 10">
+                                        <img src="{{ asset('images/img/02-couple.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <p>But it could also take you to a link inside your web page</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="Controller2" class="Controller"></div>
+                    <div id="ScrollBar2" class="ScrollBar"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <style>
+            button.accordion {
+                background-color: #3D9FD0;
+                color: #ffffff;
+                cursor: pointer;
+                padding: 20px;
+                width: 100%;
+                border: none;
+                text-align: center;
+                outline: none;
+                font-size: 20px;
+                transition: 0.4s;
+            }
+
+            button.accordion.active, button.accordion:hover {
+                background-color: #c95564;
+            }
+
+            div.panel {
+                padding: 0 18px;
+                background-color: #3D9FD0;
+                max-height: 0;
+                overflow: hidden;
+                transition: 0.6s ease-in-out;
+                opacity: 0;
+            }
+
+            div.panel.show {
+                opacity: 1;
+                max-height: 500px;
+            }
+        </style>
+    {% endblock %}
+

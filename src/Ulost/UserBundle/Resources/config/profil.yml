@@ -1,0 +1,50 @@
+
+ulost_user_home:
+    path:     /home
+    defaults: { _controller: UlostUserBundle:Home:index }
+
+ulost_user_edit:
+    path:     /edit
+    defaults: { _controller: UlostUserBundle:Profil:editUser }
+
+ulost_user_profil:
+    path:     /
+    defaults: { _controller: UlostUserBundle:Profil:index }
+
+ulost_user_annonce:
+    path:     /mes_annonces/{page}
+    defaults: { _controller: UlostAnnonceBundle:Annonce:indexUser , page:1}
+
+
+ulost_user_historique:
+    path:     /historique/{page}
+    defaults: { _controller: UlostAnnonceBundle:Annonce:indexHistorique , page:1}
+
+
+ulost_user_details_annonce:
+    path:     /mon_annonce/{id_annonce}
+    defaults: { _controller: UlostUserBundle:Advert:detailsannonce }
+    requirements:
+        id_annonce:  \d+
+
+ulost_user_around_annonce_perdu:
+    path:    /around
+    defaults:  { _controller: UlostUserBundle:Advert:around }
+
+ulost_authentification_annonce:
+    path:   /authentificationObligatoire
+    defaults: { _controller: UlostUserBundle:Authentification:authentificationAnnonce }
+
+ulost_index_emploi:
+    path : /indexMesEmplois
+    defaults: { _controller: UlostUserBundle:Home:indexEmploi}
+
+ulost_suppression_warning:
+    path : /suppressionWarning
+    defaults: { _controller:UlostUserBundle:Profil:showSuppressionWarning }
+
+ulost_suppression_totale:
+    path : /suppressionTotale/{suppressKey}
+    defaults: { _controller:UlostUserBundle:Profil:SuppressionTotale }
+    requirements:
+           suppressKey:  \d+

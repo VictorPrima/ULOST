@@ -1,0 +1,50 @@
+{# src/Ulost/CoreBundle/Resources/views/Advert/objet.html.twig #}
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+	{% block Municipale_body %}
+
+<div class="banniere"> <p>Les détails de l'annonce en cours<p></div>
+<div class="card">
+	<form action="{{ path('ulost_municipale_depot_contact') }}" method="POST">
+		{% set num = 1 %}
+		
+		{% for question in list_question %}
+			<div class="controls">
+	
+			{% if question.CodeHtml == 'radio' %}
+				 {{ include('UlostMunicipaleBundle:Advert:radio.html.twig') }}
+			{% endif %}
+			
+			{% if question.CodeHtml == 'option' %}
+				 {{ include('UlostMunicipaleBundle:Advert:option.html.twig') }}
+			{% endif %}
+			
+			{% if question.CodeHtml == 'text' %}
+				 {{ include('UlostMunicipaleBundle:Advert:text.html.twig') }}
+			{% endif %}
+			
+			{% if question.CodeHtml == 'textarea' %}
+				 {{ include('UlostMunicipaleBundle:Advert:textarea.html.twig') }}
+			{% endif %}
+			
+			{% if question.CodeHtml == 'checkbox' %}
+				 {{ include('UlostMunicipaleBundle:Advert:checkbox.html.twig') }}
+			{% endif %}
+			
+			
+			</div>
+			{% set num = num + 1 %}
+		{% endfor %}
+		
+		<div class="controls">
+			<h1> Remarques </h1>
+			<textarea name="remarques" placeholder="Remarques" rows="4"></textarea> 
+		</div>
+		<div class="controls">
+			<h1> Signes Distinctif </h1>
+			<textarea name="distinctif" placeholder="Signes Distincitfs" rows="4"></textarea> 
+		</div>
+		</br>
+		<button type="submit" name="validate" value="ok"> OK </button>
+	</form>
+</div>
+{% endblock %}

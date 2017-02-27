@@ -1,0 +1,42 @@
+
+ <div class="card">
+	<form action="{{ path('ulost_municipale_annonces_search') }}" method="POST">
+		
+		<div class="controls">
+			<h1> Dans quel secteur</h1>
+			<div class="dropdown">
+			<select class="dropdown-select" name="lieu">
+				<option value="tous"> 
+					Tous 
+				</option>
+				
+				{% for municipale in municipales %}
+				<option value="{{municipale.codepostal}}" >
+					{{municipale.codepostal}} : {{municipale.ville}}
+				</option>
+				{% endfor %}
+			</select>
+			</div>
+			</div>
+			<div class="controls">
+		
+			<h1> Quel Objet ? </h1>
+			<div class="dropdown">
+			<select class="dropdown-select" name="objet">
+				<option value="tous"> 
+					Tous 
+				</option>
+				
+				{% for objet in listeobjet %}
+				<option value="{{objet.url}}" >
+					{{objet.nom}} 
+				</option>
+				{% endfor %}
+			</select>
+			</div>
+			
+		</div>
+		<button type="submit" name="validate" value="ok"> OK </button>
+	</form>
+</div>
+ 

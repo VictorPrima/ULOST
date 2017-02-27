@@ -1,0 +1,3 @@
+ulost_mail_test:
+    path:     /test
+    defaults: { _controller: UlostMailBundle:Mail:index}

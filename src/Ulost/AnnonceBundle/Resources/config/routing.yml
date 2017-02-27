@@ -1,0 +1,83 @@
+ulost_oneannoncepage:
+    path:     /view/{id}
+    defaults: { _controller: UlostAnnonceBundle:Annonce:showOne }
+    requirements:
+        id:     \d+
+
+ulost_annonce_test_index:
+    path:     /index
+    defaults: { _controller: UlostAnnonceBundle:Post:index }
+
+ulost_annonce_object:
+    path:     /{status}
+    defaults: { _controller: UlostAnnonceBundle:Post:indexObject }
+    requirements:
+        status:     lost|found
+
+ulost_annonce_newAnnonce:
+     path:   /{status}/{object_id}/
+     defaults: { _controller: UlostAnnonceBundle:Post:newAnnonce }
+     requirements:
+             status:     lost|found
+             object_id:  \d+
+
+ulost_annonce_newAnnonceBis:
+     path:   /{status}/
+     defaults: { _controller: UlostAnnonceBundle:Post:newAnnonceBis }
+     requirements:
+             status:     lost|found
+
+ulost_lieu_annonce:
+    path:     /lieu
+    defaults: { _controller: UlostAnnonceBundle:Post:lieu }
+
+ulost_annonce_recap:
+    path:     /recap
+    defaults: { _controller: UlostAnnonceBundle:Post:recap }
+
+ulost_annonce_enregistrer:
+    path:     /enregistrement/{annonce_id}
+    defaults: { _controller: UlostAnnonceBundle:Post:enregistrer }
+    requirements:
+            annonce_id:     \d+
+
+ulost_annonce_enfant:
+    path:     /addAnnonceEnfant/{id}
+    defaults: { _controller: UlostAnnonceBundle:Post:addAnnonceEnfant }
+    requirements:
+        annonce_id:     \d+
+
+ulost_remove_all:
+    path : /removeAll
+    defaults: { _controller: UlostAnnonceBundle:Annonce:removeAllAnnonce}
+    requirements:
+          id:     \d+
+
+
+ulost_remove_all_annonce:
+    path : /removeAllAnnonce/{id}
+    defaults: { _controller: UlostAnnonceBundle:Annonce:removeAllAnnonceFromUser}
+    requirements:
+          id:     \d+
+
+
+ulost_remove_one_annonce:
+    path : /removeAnnonce/{id}
+    defaults: { _controller: UlostAnnonceBundle:Annonce:removeOneAnnonce}
+    requirements:
+          id:     \d+
+
+ulost_archiver_annonce:
+    path : /archiverAnnonce/{id}
+    defaults: { _controller: UlostAnnonceBundle:Annonce:archiverAnnonce}
+    requirements:
+          id:     \d+
+
+search_object:
+    path: /searchObject
+    defaults: { _controller: UlostAnnonceBundle:Post:searchObject }
+
+showSearch_object:
+    path: /showSearchObject
+    defaults: { _controller: UlostAnnonceBundle:Post:showSearchObject }
+

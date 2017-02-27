@@ -1,0 +1,29 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/Home/annonces.html.twig #}
+
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+	{% block Municipale_body %}
+	
+	<h1> Toutes les annonces de la ville </h1>
+<div class="banniere"> 
+	<p>Selectionnez le numéro de la colonne de gauche pour aller sur l'annonce
+ et poursuivre la procédure </p>
+ </div>
+	
+	{{ include ('UlostMunicipaleBundle:Home:search.html.Twig') }}
+	
+	{{ include ('UlostMunicipaleBundle:Home:table_annonce.html.Twig') }}
+
+</br> </br>
+
+	<ul>
+		{% for num in 1..nbPages %}
+			<a href="{{path('ulost_municipale_annonces_ville_param', {'page': num, 'codepostal': municipale.codepostal})}}">
+				<li> 
+					{{ num }}
+				</li>
+			</a>
+		{% endfor %}
+		</ul>
+</br> </br>
+
+	{% endblock %}

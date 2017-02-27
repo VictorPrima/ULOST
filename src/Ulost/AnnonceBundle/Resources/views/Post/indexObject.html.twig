@@ -1,0 +1,11 @@
+<div class="bloc-scroll">
+    <div class="bloc-liste-objet">
+        {% for object in listObject %}
+            <div class="bloc-objet">
+
+                {{ render(controller("UlostAnnonceBundle:Post:showObject", {'object': object, 'status':status})) }}
+
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,38 @@
+ulost_annonce_new:
+    path:     /{perdu_trouve}
+    defaults: { _controller: UlostCoreBundle:Advert:objet }
+    requirements:
+        "perdu_trouve": "perdu|trouvé"
+
+ulost_annonce_details:
+    path:     /{perdu_trouve}/{id}
+    defaults: { _controller: UlostCoreBundle:Advert:details }
+    requirements:
+        "perdu_trouve": "perdu|trouvé"
+
+ulost_annonce_place:
+    path:     /place
+    defaults: { _controller: UlostCoreBundle:Ville:place }
+
+ulost_annonce_place_search:
+    path:     /place/search
+    defaults: { _controller: UlostCoreBundle:Advert:searchBook }
+
+ulost_annonce_place_get:
+    path:     /place/get
+    defaults: { _controller: UlostCoreBundle:Advert:getBook }
+
+ulost_annonce_place_details:
+    path:     /place/{place}
+    defaults: { _controller: UlostCoreBundle:Ville:place_details }
+
+ulost_annonce_place_villes:
+    path:     /villes/{cp}
+    defaults: { _controller: UlostCoreBundle:Ville:Villes }
+    requirements:
+         cp: \d+
+
+ulost_annonce_save:
+    path:     /save
+    defaults: { _controller: UlostCoreBundle:Advert:save }
+

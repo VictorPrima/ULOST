@@ -1,0 +1,12 @@
+{% extends "UlostCoreBundle::layout.html.twig" %}
+
+{% block Core_body %}
+<div>
+    <h2>
+        Liste des emplois de l'utilisateur {{ user.username }}
+    </h2>
+</div>
+<div>
+    {{ render(controller("UlostMunicipaleBundle:Emploi:showEmploiByUser", {'id':user.id})) }}
+    </div>
+{% endblock %}

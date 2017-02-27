@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+
+
+
+<h3>Caractèristiques</h3>
+
+<div>
+    {% for reponse in form.reponses %}
+        {% form_theme form 'UlostCoreBundle:Form:fields.html.twig' %}
+       {{ form_row(reponse.champ) }}
+
+    {% endfor %}
+
+{{ form_row(form.remarque) }}
+
+</div>
+{{ form_end(form) }}

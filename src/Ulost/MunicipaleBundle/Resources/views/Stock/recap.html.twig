@@ -1,0 +1,31 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+{% block Core_body %}
+
+    <div class="recapitulatif">
+        <p><strong>Vous ajoutez une annonce pour le service {{ service.name }}</strong>
+        <p><strong>Recapitulatif de l'annonce </strong>
+            {% if annonce.status is defined and annonce.status is not empty %} ( {{ annonce.status }} ){% endif %}
+        </p>
+        <div>
+            {% if annonce.object is defined and annonce.object is not empty %}
+                <div>  {{ render(controller("UlostObjectBundle:Object:showImageByObject", {'object_id': annonce.object.id})) }}
+                </div>
+                <div>
+                    {{ annonce.object.typeObjet }}
+                    {{ annonce.object.category.name }}
+                </div>
+            {% endif %}
+        </div>
+
+        <p>
+            {% for reponse in annonce.reponses %}
+        <div>
+            {{ reponse.question.name }}{{ " : " }}{{ reponse.champ }}
+        </div>
+        {% endfor %}
+        </p>
+    </div>
+
+    {{ form(form) }}
+
+{% endblock %}

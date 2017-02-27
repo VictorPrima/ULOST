@@ -1,0 +1,8 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+ {% block Core_body %}
+     <h1>Modification de l'alternative {{ alternative.name }}{{ " pour la question " }}{{ alternative.question.name }}</h1>
+     <a href="{{ path('ulost_remove_alternative',{'id':alternative.id}) }}" class="button">Supprimer cette réponse  </a>
+
+     <a href="{{ path('ulost_view_object',{'id':alternative.question.object.id}) }}" class="button">Retour à l'objet {{alternative.question.object.typeObjet  }} </a>
+     {{ include("UlostObjectBundle:Advert:formAlternative.html.twig") }}
+ {% endblock %}

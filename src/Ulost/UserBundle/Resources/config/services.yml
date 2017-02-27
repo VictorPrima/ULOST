@@ -1,0 +1,9 @@
+services:
+ AnnonceAction:
+        class: Ulost\AnnonceBundle\Controller\AnnonceController
+        calls:
+                    - [setContainer, ["@service_container"]]
+ EmploiAction:
+        class: Ulost\MunicipaleBundle\Controller\EmploiController
+        calls:
+                    - [setContainer, ["@service_container"]]

@@ -1,0 +1,17 @@
+<td> <a href="{{ path('ulost_comparaison_correspondance', {'id':correspondance.id }) }}" class="button"> {{correspondance.id}} </a>
+</td>
+
+<td>{{ annonce.object.typeObjet }}
+</td>
+
+<td> {{ correspondance.date|date('d/m/Y') }}
+</td>
+
+<td> {{ annonce.ville.name }}
+</td>
+
+<td> {{  correspondance.confirmed }}
+</td>
+
+<td> {{ render(controller("UlostCorrespondanceBundle:Correspondance:showDistance", {'correspondance':correspondance})) }}
+</td>

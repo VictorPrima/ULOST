@@ -1,0 +1,26 @@
+{# src/Ulost/AdminBundle/Resources/views/Objet/showall.html.twig #}
+
+<div>
+	<tr>
+		<br>
+		<td> id</td>
+		<td> question </td>
+		<td> html </td>
+		<td> rep1</td>
+		<td> rep2</td>
+		<td> rep3</td>
+		<td> rep4</td>
+		<td> rep5</td>
+		<td> rep6</td>
+		<td> rep7</td>
+		<td> rep8</td>
+		<td> rep9</td>
+		<td> rep10</td>
+	</tr>
+
+    {% for id_question in list_question %}
+	</br>
+    {{ render(controller("UlostCoreBundle:Objet:showQuestionAll", {'id_question': id_question})) }}
+	</br>
+	{% endfor %}
+</div>

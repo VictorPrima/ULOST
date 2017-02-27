@@ -1,0 +1,21 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+ {% block Core_body %}
+     <div>
+         Service {{ service.name }}
+     </div>
+     <div>
+         Déplacement du stock {{ stock.annonce.object.typeObjet }}
+     </div>
+     <div>
+         Emplacement actuel :
+         {% if stock.emplacement is defined and stock.emplacement is not empty %}
+             {{ stock.emplacement.type }} {{ stock.emplacement.name }}
+         {% else %}
+             {{ "A ranger" }}
+         {% endif %}
+     </div>
+     {{ include("UlostMunicipaleBundle:Stock:formStock.html.twig") }}
+
+ {% endblock %}
+
+

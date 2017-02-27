@@ -1,0 +1,64 @@
+ulost_municipale_stockpage:
+    path:     /{page}
+    defaults: { _controller: UlostMunicipaleBundle:Stock:index , page: 1 }
+    requirements:
+        page: \d+
+ulost_municipale_stock_show_recherche:
+    path:     /recherche
+    defaults: { _controller: UlostMunicipaleBundle:Stock:recherche }
+
+ulost_municipale_stock_objet:
+    path:     /recherche/{objet}/{page}
+    defaults:  { _controller: UlostMunicipaleBundle:Stock:objet, page: 1  }
+    requirements:
+        page: \d+
+
+ulost_municipale_stock_id:
+    path:     /recherche/{id}
+    defaults:  { _controller: UlostMunicipaleBundle:Stock:find  }
+    requirements:
+        id: \d+
+
+
+
+ulost_index_stock_by_service:
+    path:     /indexStockByService/{id}
+    defaults:  { _controller: UlostMunicipaleBundle:Stock:indexStocksByService  }
+    requirements:
+        id: \d+
+
+ulost_index_stock_by_emplacement:
+    path:     /indexStockByEmplacement/{id}
+    defaults:  { _controller: UlostMunicipaleBundle:Stock:indexStocksByEmplacement  }
+    requirements:
+        id: \d+
+
+
+ulost_add_stock:
+    path:  /addStock/{id}
+    defaults: {_controller: UlostMunicipaleBundle:Stock:addStock}
+    requirements:
+            id: \d+
+
+
+ulost_edit_stock:
+    path:  /editStock/{id}
+    defaults: {_controller: UlostMunicipaleBundle:Stock:editStock}
+    requirements:
+            id: \d+
+
+
+ulost_new_stock:
+    path:  /{id}/addStock/{status}
+    defaults: {_controller: UlostMunicipaleBundle:Stock:newStock}
+    requirements:
+            status:     lost|found
+            id: \d+
+
+
+ulost_stock_enfant:
+    path:  /{id}/addStockEnfant
+    defaults: {_controller: UlostMunicipaleBundle:Stock:addStockEnfant}
+    requirements:
+        status:     lost|found
+        id: \d+

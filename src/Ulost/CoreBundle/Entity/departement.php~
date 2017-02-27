@@ -1,0 +1,128 @@
+<?php
+
+namespace Ulost\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * departement
+ *
+ * @ORM\Table(name="departement")
+ * @ORM\Entity(repositoryClass="Ulost\CoreBundle\Repository\departementRepository")
+ */
+class departement
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=4)
+     */
+    private $code;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="region", type="integer")
+     */
+    private $region;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set code
+     *
+     * @param int $code
+     *
+     * @return departement
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return int
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set region
+     *
+     * @param integer $region
+     *
+     * @return departement
+     */
+    public function setRegion($region)
+    {
+        $this->region = $region;
+
+        return $this;
+    }
+
+    /**
+     * Get region
+     *
+     * @return int
+     */
+    public function getRegion()
+    {
+        return $this->region;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return departement
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+}
+

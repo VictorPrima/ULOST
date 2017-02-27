@@ -1,0 +1,9 @@
+<form action="{{ path('ulost_annonce_enregistrer') }}" method="POST" >
+
+  <input type="text" id="ville" name="ville" size="20" data-suggest="{{ path('city_search') }}" placeholder="Saisissez une ville" />
+  <input type="text" id="codePostal" size="5" readonly="readonly" placeholder="Code Postal" />
+  <input type="hidden" id="villeId" name="villeId" readonly="readonly" />
+  <button type="submit" name="validate" value="ok"> Enregistrer </button>
+</form>
+
+

@@ -1,0 +1,128 @@
+<?php
+
+namespace Ulost\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * CategoryObjet
+ *
+ * @ORM\Table(name="category_objet")
+ * @ORM\Entity(repositoryClass="Ulost\CoreBundle\Repository\CategoryObjetRepository")
+ */
+class CategoryObjet
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_category", type="string", length=255)
+     */
+    private $nameCategory;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255)
+     */
+    private $url;
+
+  
+	/**
+     * @var string
+     * @ORM\ManyToOne(targetEntity="Ulost\AnnonceBundle\Entity\Objet")
+     * @ORM\Column(name="objet", type="string", length=255)
+     */
+    private $objet;
+	
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nameCategory
+     *
+     * @param string $nameCategory
+     *
+     * @return CategoryObjet
+     */
+    public function setNameCategory($nameCategory)
+    {
+        $this->nameCategory = $nameCategory;
+
+        return $this;
+    }
+
+    /**
+     * Get nameCategory
+     *
+     * @return string
+     */
+    public function getNameCategory()
+    {
+        return $this->nameCategory;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return CategoryObjet
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set objet
+     *
+     * @param string $objet
+     *
+     * @return CategoryObjet
+     */
+    public function setObjet($objet)
+    {
+        $this->objet = $objet;
+
+        return $this;
+    }
+
+    /**
+     * Get objet
+     *
+     * @return string
+     */
+    public function getObjet()
+    {
+        return $this->objet;
+    }
+}

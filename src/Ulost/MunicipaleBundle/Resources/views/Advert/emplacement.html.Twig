@@ -1,0 +1,29 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/Advert/emplacement.html.twig #}
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+{% block Municipale_body %}
+
+
+<h1> Emplacement de l'objet</h1>
+
+<div class="card">
+	<form action="{{ path('ulost_depot_annonce_last') }}" method="POST">
+		
+		<div class="controls">
+			<h1> Ou le mettez vous? </h1>
+			<textarea name="emplacement" rows="5" cols="30"> </textarea>
+		</div>
+		<div class="controls">
+			<h1> Qui le fait ? </h1>
+			<div class="dropdown">
+			<select class="dropdown-select" name="employe">
+				{% for employe in employes %}
+				<option name="employe" value="{{ employe.id }} " >{{employe.nom}}</input>
+				{% endfor %}
+			</select>
+			</div>
+		</div>
+		<button type="submit" name="validate" value="ok"> OK </button>
+	</form>
+</div>
+
+{% endblock %}

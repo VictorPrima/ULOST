@@ -1,0 +1,24 @@
+services:
+#    annonce.example:
+#        class: AnnonceBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+
+  AnnonceAction:
+        class: Ulost\AnnonceBundle\Controller\AnnonceController
+        calls:
+                    - [setContainer, ["@service_container"]]
+
+  CorrespondanceAction:
+        class: Ulost\CorrespondanceBundle\Controller\CorrespondanceController
+        calls:
+                    - [setContainer, ["@service_container"]]
+
+  StockAction:
+        class: Ulost\MunicipaleBundle\Controller\StockController
+        calls:
+                    - [setContainer, ["@service_container"]]
+
+  MailAction:
+        class: Ulost\MailBundle\Controller\MailController
+        calls:
+                    - [setContainer, ["@service_container"]]

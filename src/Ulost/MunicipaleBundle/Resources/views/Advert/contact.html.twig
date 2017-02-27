@@ -1,0 +1,54 @@
+{# src/Ulost/AnnonceBundle/Resources/views/Home/contact_page.html.twig #}
+
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+	{% block Municipale_body %}
+<div class="banniere">
+	<p> Dans cette page, vous devez indiquer la personne qui a 
+	trouvé, perdu l'objet, et si elle souhaite un message avec son numéro de telephone</p>
+</div>
+
+
+<div class="card">
+	<form action="{{ path('ulost_municipale_depot_first') }}" method="POST">
+
+		<div class="controls">
+			<h1> Si il s'agit d'un partenaire </h1>
+			</br></br>
+			<div class="dropdown">
+				<select class="dropdown-select" name="partenaire" >
+				{% for partenaire in partenaires %}
+				<option value="{{partenaire.id}}" > 
+					{{partenaire.nom}}
+				</option>
+				{% endfor %}
+			</select>
+			</div>
+		</div>
+		<button type="submit" name="validate" value="ok"> OK </button>
+	</form>
+</div>
+
+
+<div class="card">
+	{{ form_start(form, {'attr': {'id': 'client'}, action:path('ulost_municipale_depot_first')}) }}
+		<div class="controls">
+		<h1> ou sinon indiquer la personne qui fournit l'objet </h1>
+		</br>
+		<div class="half left cf">
+			{{ form_label(form.name, 'Votre nom', {'id': 'name'}) }}
+			{{ form_widget(form.name, {'id': 'name'}) }}
+				
+			{{ form_label(form.mail, 'Votre mail', { 'id': 'email'}) }}
+			{{ form_widget(form.mail, {'id': 'email'}) }}
+		</div>
+		<div class="half right cf">
+			{{ form_label(form.telephone, 'son telephone', { 'id': 'msg'}) }}
+			{{ form_widget(form.telephone, { 'id': 'input-message'}) }}
+		</div>
+	</br>
+		{{ form_widget(form.save, { 'id': 'send'}) }}
+		</div>
+		{{ form_end(form) }} 		
+</div>
+
+{% endblock %}

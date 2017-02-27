@@ -1,0 +1,40 @@
+    <div>
+    <table>
+
+    <tr>
+        {# sorting of properties based on query components #}
+
+        <th{% if pagination.isSorted('ville.name') %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Nom', 'ville.name') }}
+        </th>
+        <th{% if pagination.isSorted('ville.departement.name') %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Departement', 'ville.departement.name') }}
+        </th>
+        <th>
+            {{ "Rôle de la ville" }}
+        </th>
+
+    </tr>
+
+        {# table body #}
+        {% for ville in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>
+                    <h5>{{ ville.name }}</h5>
+                </td>
+                <td>
+                    <h5>{{ ville.departement.name }}</a></h5>
+                </td>
+                <td>
+                {{ render(controller('UlostVilleBundle:VilleServiceRelation:showRelationByVilleAndService', {'service':service, 'ville':ville} )) }}
+                </td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+    </div>
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>

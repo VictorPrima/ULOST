@@ -1,0 +1,30 @@
+{# src/Ulost/CoreBundle/Resources/views/Advert/villes.html.twig #}
+{% extends "UlostCoreBundle::layout.html.twig" %}
+	{% block Core_body %}
+
+{{ render(controller("UlostCoreBundle:Advert:showRecap")) }}
+
+<h1>Villes </h1>
+
+</br>
+<form action="{{ path('ulost_annonce_save') }}" method="POST">
+	<label> le code postal </label>
+	<input class="cp" maxlength="5" type="text" placeholder="Code Postal" />
+	<label> La ville </label>
+	<input class="ville" type="text"/>
+
+	<select>
+	{% for departement in departements %}
+		{% set code_departement = departement.code %}
+		{{ render(controller("UlostCoreBundle:Advert:found_villes", {'code_departement': code_departement})) }}
+	{% endfor %}
+	</select>
+	</br></br>
+
+	
+	</br></br>
+	<button type="submit" name="validate" value="ok"> Suivant </button>
+
+</form>
+
+{% endblock %}

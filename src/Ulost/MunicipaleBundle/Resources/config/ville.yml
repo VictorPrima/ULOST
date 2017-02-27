@@ -1,0 +1,34 @@
+ulost_municipale_annonces_ville:
+    path:     /accueil/{page}
+    defaults: { _controller: UlostMunicipaleBundle:Home:AllAdvert, page:1}
+    requirements:
+        page: \d+
+
+ulost_municipale_annonces_search:
+    path:     /search
+    defaults: { _controller: UlostMunicipaleBundle:Home:search }
+
+ulost_municipale_annonces_ville_param:
+    path:     /lieu/{codepostal}/{page}
+    defaults: { _controller: UlostMunicipaleBundle:Home:Lieu, page: 1 }
+    requirements:
+        page: \d+
+        codepostal:  \d+
+
+ulost_municipale_objet_annonce_ville:
+    path:     /objet/{objet}/{page}
+    defaults: { _controller: UlostMunicipaleBundle:Home:Objet, page:1 }
+    requirements:
+        page:  \d+
+
+ulost_municipale_objet_ville_annonce_param:
+    path:      /lieu/{codepostal}/objet/{objet}/{page}
+    defaults:   { _controller: UlostMunicipaleBundle:Home:param, page:1 }
+    requirements:
+        page: \d+
+        codepostal:  \d+
+
+ulost_municipale_une_annonce_search_ville:
+    path:     /search_annonce
+    defaults: { _controller: UlostMunicipaleBundle:Home:searchOne }
+

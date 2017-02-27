@@ -1,0 +1,59 @@
+ulost_Correspondance1:
+    path:     /{id}/{page}
+    defaults: { _controller: UlostCorrespondanceBundle:Correspondance:indexAnnoncesCorrespondantes, page:1}
+    requirements:
+        id:     \d+
+
+
+ulost_comparaison_correspondance:
+    path:     comparaison/{id}
+    defaults: { _controller: UlostCorrespondanceBundle:Correspondance:showComparaison }
+    requirements:
+        id:     \d+
+
+ulost_confirmer_correspondance:
+    path:     showCorrespondance/{id}
+    defaults: { _controller: UlostCorrespondanceBundle:Correspondance:confirmerCorrespondance}
+    requirements:
+        id:     \d+
+
+
+ulost_annuler_confirmation:
+    path:     annulerConfirmation/{id}
+    defaults: { _controller: UlostCorrespondanceBundle:Correspondance:annulerConfirmation}
+    requirements:
+        id:     \d+
+
+ulost_add_correspondance:
+    path:     /add/{found_id}/{lost_id}
+    defaults: { _controller: UlostCorrespondanceBundle:Correspondance:addCorrespondance }
+    requirements:
+        id:     \d+
+
+ulost_index_correspondance_by_user:
+    path:     /indexCorrespondancesByUser/{id}/{page}
+    defaults: { _controller: UlostCorrespondanceBundle:Correspondance:indexCorrespondancesByUser, page:1 }
+    requirements:
+        id:     \d+
+
+ulost_index_correspondance_by_service:
+    path:     /indexCorrespondancesByService/{id}/{page}
+    defaults: { _controller: UlostCorrespondanceBundle:Correspondance:indexCorrespondancesByService, page:1 }
+    requirements:
+        id:     \d+
+
+
+
+ulost_update_all_correspondances:
+    path: /updateAll
+    defaults: { _controller: UlostCorrespondanceBundle:Correspondance:updateAllCorrespondance }
+
+ulost_archiver_correspondance:
+    path: /archiverCorrespondance/{id}
+    defaults: { _controller: UlostCorrespondanceBundle:Correspondance:archiverCorrespondance }
+    requirements:
+        id:     \d+
+
+ulost_show_champ:
+    path: /showChamp/{champ}
+    defaults: { _controller: UlostCorrespondanceBundle:Correspondance:showChamp }

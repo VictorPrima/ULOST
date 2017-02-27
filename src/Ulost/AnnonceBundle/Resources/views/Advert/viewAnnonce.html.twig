@@ -1,0 +1,74 @@
+<div>
+
+
+    <h2>
+        {% if  annonce.object.image %}
+
+            {{ render(controller("UlostObjectBundle:Object:showImageByObject", {'object_id': annonce.object.id})) }}
+
+        {% else %}  Pas encore d'image pour l'objet {{ annonce.object.typeObjet }}
+        {% endif %}
+        <div>
+            {{ "Annonce : " }} {{ annonce.object.typeObjet }} {{ " " }}
+            {% if  annonce.status=="lost" %}
+                {{ "perdu" }}
+            {% elseif  annonce.status =="found" %}
+                {{ "trouvé" }}
+            {% endif %}
+        </div>
+    </h2>
+</div>
+<div>
+{% if  annonce.imageAnnonce is defined and annonce.imageAnnonce is not empty %}
+    {{ render(controller("UlostAnnonceBundle:Annonce:showImageByAnnonce", {'annonce': annonce})) }}
+{% endif %}
+</div>
+<div>
+    <div>
+        Par : <strong>{{ annonce.user.username }}</strong>
+    </div>
+    <div>
+        Type : <strong>{{ annonce.object.typeObjet }}</strong>
+    </div>
+    <div>
+        Déclaré le <strong>{{ annonce.date|date('d/m/Y') }}</strong>
+    </div>
+    <div>
+        Lieu de la perte : <strong>{{ annonce.ville.name }}</strong>
+    </div>
+    <div>
+        Dernière modification : <strong>{{ annonce.updatedAt|date('d/m/Y') }}</strong>
+    </div>
+</div>
+</br>
+<div>
+    {% if annonce.parent is defined and annonce.parent is not empty %}
+        <div>
+            Cette annonce est liée à une autre annonce de type {{ annonce.parent.object.typeObjet }}
+        </div>
+        <div>
+            <td>
+                <a href="{{ path('ulost_oneannoncepage', {'id': annonce.parent.id }) }}" , class="button"> Voir
+                    l'annonce parent </a>
+            </td>
+        </div>
+
+    {% endif %}
+
+
+            {{ render(controller("UlostAnnonceBundle:Annonce:showReponseByAnnonce", {"annonce":annonce})) }}
+
+
+</div>
+<div>
+    <h4>{{ "Remarques : " }}</h4>{{ annonce.remarque }}
+</div>
+
+</br>
+
+{% if annonce.enfants is defined and annonce.enfants is not empty %}
+    <div>
+        {{ render(controller("UlostAnnonceBundle:Annonce:showByAnnonceParent", {"annonce":annonce})) }}
+    </div>
+{% endif %}
+

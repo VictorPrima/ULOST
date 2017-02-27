@@ -1,0 +1,22 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+ {% block Core_body %}
+     <h1>Modification de l'agglomération {{ villeServiceRelation.name }}</h1>
+     <a href="{{ path('ulost_view_villeServiceRelation', {id:villeServiceRelation.id}) }}" class="button">Retour à la Relation </a>
+
+     <h3>Modifier la relation</h3>
+
+
+     <div class="well">
+
+
+
+         {{ form_start(form) }}
+         {{ form_errors(form) }}
+         {{ form_row(form.name) }}
+         {{ form_end(form) }}
+
+     </div>
+
+
+
+ {% endblock %}

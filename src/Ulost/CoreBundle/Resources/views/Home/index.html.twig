@@ -1,0 +1,49 @@
+{# src/Ulost/AnnonceBundle/Resources/views/Home/index.html.twig #}
+
+{% extends "UlostCoreBundle::layout.html.twig" %}
+	{% block Core_body %}
+
+
+
+		<div class="wrap">
+			<a href="{{ path('ulost_annonce_object', {'status': 'found'}) }}" class="button">{% trans %}J'ai trouvé un objet{% endtrans %}</a>
+			<a href="{{ path('ulost_annonce_object', {'status': 'lost'}) }}" class="button">J'ai perdu un objet</a>
+		</div>
+
+
+		{{ render(controller("UlostCoreBundle:Home:fonctionnement")) }}
+
+<a href="{{ path('ulost_partenaire') }}"><h3> pas encore Partenaire ? </h3></a>
+
+{% image '@UlostCoreBundle/Resources/public/images/people.png' %}
+		<img src="{{ asset_url }}" class="partenariat" />
+{% endimage %}
+{% image '@UlostCoreBundle/Resources/public/images/people-2.png' %}
+		<img src="{{ asset_url }}" class="partenariat" />
+{% endimage %}
+
+<div class="envelope_contact">
+	<div class="overlay" id="contact">
+	  <div class='close-button '></div>
+	  <form id="form">
+		<h1>Let us talk</h1>
+		<label for="name">Name:</label><br>
+		<input type="text" id="name" required /><br>
+		<label for="email">Email:</label><br>
+		<input type="email" name="" id="email" required /><br>
+		<label for="msg">Message:</label><br>
+		<textarea name="" id="msg" cols="20" rows="3" required></textarea><br>
+	   
+		<button id="send" class="btn-send">Send</button>
+	  </form>  
+	</div>
+	
+	<a href="#contact">
+	  <div class="circle">
+		<div class="envelope-top"></div>
+		<div class="envelope"></div>
+	  </div>
+	</a>
+</div>
+
+{% endblock %}

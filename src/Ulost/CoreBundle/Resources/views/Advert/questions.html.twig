@@ -1,0 +1,27 @@
+{# src/Ulost/CoreBundle/Resources/views/Advert/objet.html.twig #}
+{% extends "UlostCoreBundle::layout.html.twig" %}
+	{% block Core_body %}
+
+<h2> Les détails </h2>
+<div class="card">
+<form action="{{ path('ulost_annonce_place') }}" method="POST">
+	{% set num = 1 %}
+	
+	{% for id_question in list_question %}
+		<div class="controls">
+		{{ render(controller("UlostCoreBundle:Advert:showQuestions", {'id_question': id_question, 'num': num})) }}
+		{% set num = num +1 %}
+		</div>
+	{% endfor %}
+	
+	<div class="controls">
+		<h1> Remarques </h1>
+		<textarea name="remarques" placeholder="remarques" rows="4"> 
+			
+		</textarea>
+	</div>
+	</br>
+	<button type="submit" name="validate" value="ok"> OK </button>
+</form>
+</div>
+{% endblock %}

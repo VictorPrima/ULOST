@@ -1,0 +1,12 @@
+{# src/Ulost/AdminBundle/Resources/views/Objet/index.html.twig #}
+{% extends "UlostCorrespondanceBundle::layout.html.twig" %}
+
+{% block Core_body %}
+
+    {{ include('UlostAnnonceBundle:Advert:viewAnnonce.html.twig') }}
+    <h1>Voir la liste des annonces correspondantes</h1>
+    {{ render(controller("UlostCorrespondanceBundle:Correspondance:showAnnoncesCorrespondantesById",{"id": annonce.id, page:1})) }}
+
+
+{% endblock %}
+

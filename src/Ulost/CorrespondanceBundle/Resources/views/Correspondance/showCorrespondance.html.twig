@@ -1,0 +1,42 @@
+{% extends "UlostCoreBundle::layout.html.twig" %}
+	{% block Core_body %}
+        <div>
+            <h1>Correspondance Confirmée</h1>
+        </div>
+        {% if correspondance.archived %}
+            <div><h3> Attention ! Cette correspondance a été archivée
+                    le {{ correspondance.archivedAt|date('d/m/Y') }}</h3></div>
+        {% endif %}
+        <div>
+            <h3>Distance
+                : {{ render(controller("UlostCorrespondanceBundle:Correspondance:showDistance", {'correspondance':correspondance})) }}
+            </h3>
+            <p>
+                (Plus la distance est petite, plus il y a de chances que cette annonce corresponde)
+            </p>
+        </div>
+        <h4>
+            {{ annonce.ville.name }}
+        </h4>
+        </br>
+        {{ include('UlostCorrespondanceBundle:Correspondance:showAnnonces.html.twig') }}
+
+
+        {{ render(controller("UlostCorrespondanceBundle:Correspondance:showContactAnnonceCorrespondante",
+        {'annonceCorrespondance':annonceCorrespondance})) }}
+
+        {% if correspondance.archived == false %}
+            <a href="{{ path('ulost_annuler_confirmation', {'id':correspondance.id }) }}" class="button">Annuler la
+                correspondance</a>
+            <div>
+            <a href="{{ path('ulost_archiver_correspondance', {'id':correspondance.id }) }}" class="button">
+                <h3>Archiver la correspondance</h3>
+            </a>
+            <div>
+
+        {% endif %}
+        <a href="{{ path("ulost_Correspondance1", {'id': annonce.id}) }}" class="button">Retour à la liste des
+            correspondances</a>
+        </div>
+        </div>
+    {% endblock %}

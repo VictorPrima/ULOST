@@ -1,0 +1,127 @@
+<?php
+// src/MunicipaleBundle/Entity/Municipale.php
+
+namespace Ulost\MunicipaleBundle\Entity;
+
+use Ulost\UserBundle\Entity\User as User;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_municipale")
+ */
+class Municipale
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;	
+	
+	/**
+	* @var string
+	* @ORM\ManyToOne(targetEntity="Ulost\UserBundle\Entity\User", cascade={"persist"})
+	* @ORM\joinColumn(nullable=true)
+	*/
+	private $user;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
+     */
+    private $ville;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="code_postal", type="integer", nullable=true)
+     */
+    private $codePostal;
+
+
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Municipale
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set codePostal
+     *
+     * @param integer $codePostal
+     *
+     * @return Municipale
+     */
+    public function setCodePostal($codePostal)
+    {
+        $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codePostal
+     *
+     * @return integer
+     */
+    public function getCodePostal()
+    {
+        return $this->codePostal;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Ulost\UserBundle\Entity\User $user
+     *
+     * @return Municipale
+     */
+    public function setUser(\Ulost\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Ulost\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}

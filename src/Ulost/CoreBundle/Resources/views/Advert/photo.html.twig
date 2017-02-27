@@ -1,0 +1,8 @@
+{# src/Ulost/AdminBundle/Resources/views/Advert/photo.html.twig #}
+
+{{ form_start(form) }}
+{{ form_label(form.name, 'Votre nom', {'id': 'name'}) }}
+				{{ form_widget(form.name, {'id': 'name'}) }}
+{{ form_widget(form.save, { 'id': 'send'}) }}
+			
+			{{ form_end(form) }} 

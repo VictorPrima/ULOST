@@ -1,0 +1,12 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+{% block Core_body %}
+
+<div>
+    <h1>
+        {{ "Liste des stocks de l'emplacement " }}{{ emplacement.type }}{{ " " }}{{ emplacement.name }} {{ " du service " }}{{ emplacement.service.name }}
+    </h1>
+</div>
+
+    {{ include('UlostMunicipaleBundle:Stock:indexStock.html.twig') }}
+
+{% endblock %}

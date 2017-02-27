@@ -1,0 +1,47 @@
+<td><a href="{{ path('ulost_oneannoncepage', {'id': annonce.id }) }}" class="button"> Voir
+        l'annonce {{ annonce.id }} </a></td>
+<td> {{ annonce.status }}</td>
+<td>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('ulost_admin_annoncebyUser',{'user_id':annonce.user.id }) }}">{{ annonce.user }}</a></td>
+{% else %}
+    {{ render(controller("UlostAnnonceBundle:Annonce:showOwnerOfAnnonce", {'annonce':annonce})) }}
+{% endif %}
+<td> {{ annonce.date|date('d/m/Y') }}</td>
+<td>
+
+    {% if is_granted('ROLE_VILLE') %}
+        <a href="{{ path('ulost_admin_annoncebyType',{'type_id':annonce.object.id }) }}">{{ annonce.object.typeObjet }}</a>
+    {% else %}
+        {{ annonce.object.typeObjet }}
+    {% endif %}
+</td>
+<td>{% if annonce.published==0 %}
+        Non
+    {% else %}
+        Oui
+    {% endif %}
+</td>
+<td> {% if annonce.ville is defined and annonce.ville is not empty %}
+        {% if is_granted('ROLE_VILLE') %}
+            <a href="{{ path('ulost_admin_annoncebyville',{'ville_id':annonce.ville.id }) }}">{{ annonce.ville.name }}</a>
+        {% else %}
+            {{ annonce.ville.name }}
+        {% endif %}
+    {% endif %}
+</td>
+<td> {{ render(controller("UlostCorrespondanceBundle:Correspondance:nbCorrespondancesByAnnonce", {'annonce':annonce})) }}</td>
+<td> {% if  annonce.imageAnnonce is defined and annonce.imageAnnonce is not empty %}
+        {{ render(controller("UlostAnnonceBundle:Annonce:showImageByAnnonce", {'annonce': annonce})) }}
+    {% endif %}
+</td>
+
+<style>
+    table, td, th {
+
+        text-align: center;
+
+    }
+
+
+</style>

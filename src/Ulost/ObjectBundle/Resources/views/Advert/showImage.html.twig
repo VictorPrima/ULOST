@@ -1,0 +1,8 @@
+{% if image is defined and image is not empty %}
+<div class="objet">
+    <img
+            src="{{ asset(object.image.webPath) }}"
+            alt="{{ image.alt }}"
+    />
+</div>
+{% endif %}

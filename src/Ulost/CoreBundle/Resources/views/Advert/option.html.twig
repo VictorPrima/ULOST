@@ -1,0 +1,38 @@
+<h1>{{ question }}</h1>
+</br>
+<select name="question{{ num }}" >
+
+{% if rep1 is not empty %}
+		<option value="{{rep1 }}"> {{ rep1 }}</option>
+	{% endif %}
+	{% if rep2 is not empty %}
+		<option value="{{ rep2 }}"> {{ rep2 }}</option>
+	{% endif %}
+	{% if rep3 is not empty %}
+		<option value="{{ rep3 }}"> {{ rep3 }}</option>
+	{% endif %}
+	{% if rep4 is not empty %}
+		<option value="{{ rep4 }}"> {{ rep4 }}</option>
+	{% endif %}
+	{% if rep5 is not empty %}
+		<option value="{{ rep5 }}"> {{ rep5 }}</option>
+	{% endif %}
+	{% if rep6 is not empty %}
+	<option value="{{ rep6 }}"> {{ rep6 }}</option>
+	{% endif %}
+	{% if rep7 is not empty %}
+	<option value="{{ rep7 }}"> {{ rep7 }}</option>
+	{% endif %}
+	{% if rep8 is not empty %}
+	<option value="{{ rep8 }}"> {{ rep8 }}</option>
+	{% endif %}
+	{% if rep9 is not empty %}
+	<option value="{{ rep9 }}"> {{ rep9 }}</option>
+	{% endif %}
+	{% if rep10 is not empty %}
+	<option value="{{ rep10 }}"> {{ rep10 }}</option>
+	{% endif %}
+	
+	<option value="autre"> Autre </option>
+	
+</select>

@@ -1,0 +1,475 @@
+<?php
+
+namespace Ulost\UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Profil
+ *
+ * @ORM\Table(name="profil")
+ * @ORM\Entity(repositoryClass="Ulost\UserBundle\Repository\ProfilRepository")
+ */
+class Profil
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
+     */
+    private $firstname;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="age", type="integer", nullable=true)
+     */
+    private $age;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="user", type="integer", nullable=true)
+     */
+    private $user;
+	
+	 /**
+     * @var int
+     *
+     * @ORM\Column(name="phone", type="integer", nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
+     */
+    private $country;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexe", type="string", length=255, nullable=true)
+     */
+    private $sexe;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birth_date", type="date", nullable=true)
+     */
+    private $birthDate;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="code_postal", type="integer", nullable=true)
+     */
+    private $codePostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="town", type="string", length=255, nullable=true)
+     */
+    private $town;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationnality", type="string", length=255, nullable=true)
+     */
+    private $nationnality;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="profile_picture", type="integer", nullable=true)
+     */
+    private $profilePicture;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nb_lost", type="integer", nullable=true)
+     */
+    private $nbLost;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nb_found", type="integer", nullable=true)
+     */
+    private $nbFound;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grade", type="string", length=255, nullable=true)
+     */
+    private $grade;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Profil
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     *
+     * @return Profil
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set age
+     *
+     * @param integer $age
+     *
+     * @return Profil
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * Get age
+     *
+     * @return int
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param integer $phone
+     *
+     * @return Profil
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return int
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     *
+     * @return Profil
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set sexe
+     *
+     * @param string $sexe
+     *
+     * @return Profil
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return string
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * Set birthDate
+     *
+     * @param \DateTime $birthDate
+     *
+     * @return Profil
+     */
+    public function setBirthDate($birthDate)
+    {
+        $this->birthDate = $birthDate;
+
+        return $this;
+    }
+
+    /**
+     * Get birthDate
+     *
+     * @return \DateTime
+     */
+    public function getBirthDate()
+    {
+        return $this->birthDate;
+    }
+
+    /**
+     * Set codePostal
+     *
+     * @param integer $codePostal
+     *
+     * @return Profil
+     */
+    public function setCodePostal($codePostal)
+    {
+        $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codePostal
+     *
+     * @return int
+     */
+    public function getCodePostal()
+    {
+        return $this->codePostal;
+    }
+
+    /**
+     * Set town
+     *
+     * @param string $town
+     *
+     * @return Profil
+     */
+    public function setTown($town)
+    {
+        $this->town = $town;
+
+        return $this;
+    }
+
+    /**
+     * Get town
+     *
+     * @return string
+     */
+    public function getTown()
+    {
+        return $this->town;
+    }
+
+    /**
+     * Set nationnality
+     *
+     * @param string $nationnality
+     *
+     * @return Profil
+     */
+    public function setNationnality($nationnality)
+    {
+        $this->nationnality = $nationnality;
+
+        return $this;
+    }
+
+    /**
+     * Get nationnality
+     *
+     * @return string
+     */
+    public function getNationnality()
+    {
+        return $this->nationnality;
+    }
+
+    /**
+     * Set profilePicture
+     *
+     * @param integer $profilePicture
+     *
+     * @return Profil
+     */
+    public function setProfilePicture($profilePicture)
+    {
+        $this->profilePicture = $profilePicture;
+
+        return $this;
+    }
+
+    /**
+     * Get profilePicture
+     *
+     * @return int
+     */
+    public function getProfilePicture()
+    {
+        return $this->profilePicture;
+    }
+
+    /**
+     * Set nbLost
+     *
+     * @param integer $nbLost
+     *
+     * @return Profil
+     */
+    public function setNbLost($nbLost)
+    {
+        $this->nbLost = $nbLost;
+
+        return $this;
+    }
+
+    /**
+     * Get nbLost
+     *
+     * @return int
+     */
+    public function getNbLost()
+    {
+        return $this->nbLost;
+    }
+
+    /**
+     * Set nbFound
+     *
+     * @param integer $nbFound
+     *
+     * @return Profil
+     */
+    public function setNbFound($nbFound)
+    {
+        $this->nbFound = $nbFound;
+
+        return $this;
+    }
+
+    /**
+     * Get nbFound
+     *
+     * @return int
+     */
+    public function getNbFound()
+    {
+        return $this->nbFound;
+    }
+
+    /**
+     * Set grade
+     *
+     * @param string $grade
+     *
+     * @return Profil
+     */
+    public function setGrade($grade)
+    {
+        $this->grade = $grade;
+
+        return $this;
+    }
+
+    /**
+     * Get grade
+     *
+     * @return string
+     */
+    public function getGrade()
+    {
+        return $this->grade;
+    }
+}

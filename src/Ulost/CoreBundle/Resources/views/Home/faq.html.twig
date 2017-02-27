@@ -1,0 +1,31 @@
+<div class="faq">
+<h1>FAQ</h1>
+
+{% set i = 0 %}
+
+<div class="content">
+	 {% for faq in listfaq %}
+	 <div>
+			{% if i < nb_faq  %}	
+				{% if faq.categorie is not empty %}
+					</br>
+					<div class="categorie_faq"> <strong>{{ faq.categorie }} </strong></div></br> 
+				{% endif %}
+				
+				
+			  <input type="checkbox" id="{{'question'~i}}" name="q"  class="questions">
+			  <div class="plus">+</div>
+	  
+			  <label for="{{'question'~i}}" class="question">
+				<strong>{{ faq.getQuestions() }}</strong>
+			  </label>
+			  
+			  <div class="answers">
+				{{ faq.getReponses() }}
+			  </div>
+			{% set i = i +1 %}
+			{% endif %}
+	</div>
+	{% endfor %}
+</div>
+</div>

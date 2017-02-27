@@ -1,0 +1,10 @@
+{% extends "UlostCoreBundle::layout.html.twig" %}
+
+{% block Core_body %}
+<div>
+                {{ knp_menu_render('UlostAnnonceBundle:Builder:ObjectMenu',{
+                    'currentClass': 'active',
+                    'template': 'UlostAnnonceBundle:Post:knp_menu.html.twig'}) }}
+</div>
+
+    {% endblock %}

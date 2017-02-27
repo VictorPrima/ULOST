@@ -1,0 +1,24 @@
+{# src/Ulost/CoreBundle/Resources/views/Advert/villes.html.twig #}
+{% extends "UlostCoreBundle::layout.html.twig" %}
+	{% block Core_body %}
+
+<h1> Enregistrement </h1>
+
+{{ render(controller("UlostCoreBundle:Advert:showRecap")) }}
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    Connecté en tant que {{ app.user.username }}
+	</br>
+	<form action="{{ path('ulost_annonce_save_all') }}" method="POST" >
+	<button type="submit" name="validate" value="ok"> Enregistrer </button>
+</form>
+
+{% else %}
+
+	{{ render(controller('FOSUserBundle:Security:login')) }}
+    <a href="{{ path('fos_user_registration_register') }}" class="button">S'inscrire</a>
+{% endif %}
+
+
+
+	{% endblock %}

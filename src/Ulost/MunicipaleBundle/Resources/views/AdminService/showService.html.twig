@@ -1,0 +1,12 @@
+<td> {% if service.name is defined and service.name is not empty  %}
+        {{ service.name}}
+    {% endif %}
+</td>
+<td> {% if service.ville.name is defined and service.ville.name is not empty  %}
+        {{ service.ville.name}}
+    {% endif %}
+</td>
+<td> {% if service.ville.codePostal is defined and service.ville.codePostal is not empty  %}
+        {{ service.ville.codePostal}}
+    {% endif %}
+</td>

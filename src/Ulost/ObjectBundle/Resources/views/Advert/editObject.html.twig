@@ -1,0 +1,10 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+ {% block Core_body %}
+<h1>Modification de l'objet {{ object.typeObjet }}</h1>
+     <a href="{{ path('ulost_view_object', {'id':object.id}) }}" class="button">Retour à l'objet {{object.id}}</a>
+     {{ include("UlostObjectBundle:Advert:formObject.html.twig") }}
+     </br>
+     <a href="{{ path('ulost_remove_object', {'id':object.id}) }}" class="button">Supprimer l'objet</a>
+ {% endblock %}
+
+

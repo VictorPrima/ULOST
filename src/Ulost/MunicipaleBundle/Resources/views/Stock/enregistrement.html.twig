@@ -1,0 +1,44 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+{% block Core_body %}
+
+<div class="recapitulatif">
+    <p> <strong>Vous ajoutez une annonce pour le service {{ service.name }}</strong>
+    <p> <strong>Recapitulatif de l'annonce </strong>
+        {% if annonce.status is defined and annonce.status is not empty %} ( {{ annonce.status }} ){% endif %}
+    </p>
+    {% if annonce.object is defined and annonce.object is not empty %}
+        {{ render(controller("UlostObjectBundle:Object:showImageByObject", {'object_id': annonce.object.id})) }}
+    {% endif %}
+    {{ annonce.object.typeObjet }}
+    {{ annonce.object.category.name }}
+<div>
+    {% if annonce.ville is defined and annonce.ville is not empty %}
+        {{ annonce.ville.name }}
+        {{ annonce.ville.departement.name }}
+        {{ annonce.ville.departement.code }}
+        {{ annonce.ville.departement.region.name }}
+    {% else %}
+    {{ "Pas de ville" }}
+    {% endif %}
+</div>
+    <p>
+        {% for reponse in annonce.reponses %}
+    <div>
+        {{ reponse.question.name }}{{ " : " }}{{ reponse.champ }}
+    </div>
+    {% endfor %}
+    </p>
+</div>
+    <div>
+        <a href="{{ path('ulost_stock_enfant', {'id': annonce.id}) }}" class="button">{{ "Lier une annonce" }}</a>
+    </div>
+    <div>
+        {% if annonce.status=="found" %}
+            <a href="{{ path('ulost_add_stock',{'id':annonce.id}) }}" class="button">{{ "Stocker l'objet" }}</a>
+        {% else %}
+            <a href="{{ path('ulost_service_accueil', {'id':service.id}) }}" class="button">{{ "Retour à l'accueil du service" }}</a>
+
+        {% endif %}
+    </div>
+
+{% endblock %}

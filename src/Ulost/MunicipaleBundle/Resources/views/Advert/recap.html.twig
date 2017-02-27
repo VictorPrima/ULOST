@@ -1,0 +1,25 @@
+<div class="recapitulatif">
+	<p> <strong>Recapitulatif de l'annonce </strong>
+	{% if perdu_trouve is defined and perdu_trouve is not empty %} ( {{ perdu_trouve }} ){% endif %}
+	 </p>
+	{% if objet is defined and objet is not empty %}  
+		<img class="objet" src="{{ asset('images/objet/'~objet~'.png') }}"
+			width="90" height="90" alt="{{ objet }}" />
+	{% endif %}
+
+	<p>
+		{% if question1 is defined and question1 is not empty %} {{ question1 }}, </br>{% endif %}
+		{% if question2 is defined and question2 is not empty %} {{ question2 }}, </br>{% endif %}
+		{% if question3 is defined and question3 is not empty %} {{ question3 }}, </br>{% endif %}
+		{% if question4 is defined and question4 is not empty %} {{ question4 }}, </br>{% endif %}
+		{% if question5 is defined and question5 is not empty %} {{ question5 }}, </br>{% endif %}
+		{% if question6 is defined and question6 is not empty %} {{ question6 }}, </br>{% endif %}
+		{% if question7 is defined and question7 is not empty %} {{ question7 }}, </br>{% endif %}
+		{% if question8 is defined and question8 is not empty %} {{ question8 }}, </br>{% endif %}
+		{% if question9 is defined and question9 is not empty %} {{ question9 }}, </br>{% endif %}
+		{% if question10 is defined and question10 is not empty %} {{ question10 }}, </br>{% endif %}
+		{% if remarques is defined and remarques is not empty %} remarques: {{ remarques }} {% endif %}</br>
+		{% if ville is defined and ville is not empty %} Ville concernée: {{ ville }}{% endif %}
+			
+	</p>
+</div>

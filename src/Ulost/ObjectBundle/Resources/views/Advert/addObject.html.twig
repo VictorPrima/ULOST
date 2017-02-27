@@ -1,0 +1,11 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+ {% block Core_body %}
+     <div>
+     <a href="{{ path('ulost_index_category') }}" class="button">Retour à la liste des catégories</a>
+     </div>
+     <h1>Ajouter un objet à la catégorie {{ category.name }}</h1>
+
+     {{ include("UlostObjectBundle:Advert:formObject.html.twig") }}
+ {% endblock %}
+
+

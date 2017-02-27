@@ -1,0 +1,28 @@
+{# src/Ulost/UserBundle/Resources/views/Advert/index.html.twig #}
+{% extends "UlostCoreBundle::layout.html.twig" %}
+
+	{% block Core_body %}
+		<h2> voir la liste des annonces </h2>
+
+		{{ include("UlostAnnonceBundle:Advert:showall.html.twig") }}
+
+
+<p><a href="{{ path('ulost_user_annonce') }}" class="button"> Vos annonces </a></p>
+
+<ul>
+	{% for annonce in annonces %}
+		<li>
+			<img
+				src="{{ asset('images/objet/'~annonce.objet~'.png') }}" 
+				width="90" height="90" alt="{{ annonce.objet }}" />
+			objet: {{ annonce.perdutrouve }}
+			le {{annonce.date}} à {{annonce.ville}}
+			<a href="{{path('ulost_user_details_annonce', { 'id_annonce': annonce.id })}}" class="button">
+				détails de votre annonce
+			</a> 
+		</li>
+		
+	{% endfor %}
+</ul>
+
+{% endblock %}

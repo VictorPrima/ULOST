@@ -1,0 +1,18 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/Stock/index.html.twig #}
+
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+	{% block Municipale_body %}
+
+	<h1> Toutes le Stock du service </h1>
+	
+		{% for flash_message in app.session.flashbag.get('notice') %}
+		<div class="flash-notice">
+			{{ flash_message }}
+		</div>
+	{% endfor %}
+	
+	<a href="{{ path('ulost_municipale_stock_show_recherche')}}" class="button"> Faire une Recherche par Objet </a>
+	
+
+
+	{% endblock %}

@@ -1,0 +1,44 @@
+<table>
+    <tr>
+        <th>
+            <h2>
+                Votre annonce ({{ annonce.status }})
+            </h2>
+        </th>
+        <th>
+            <h2>
+                L'annonce à comparer ({{ annonceCorrespondance.status }})
+            </h2>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            {% if  annonce.imageAnnonce is defined and annonce.imageAnnonce is not empty  %}
+                {{ render(controller("UlostAnnonceBundle:Annonce:showImageByAnnonce", {'annonce': annonce})) }}
+            {% else %}
+                {{ render(controller("UlostObjectBundle:Object:showImageByObject", {'object_id': annonceCorrespondance.object.id})) }}
+            {% endif %}
+            {{ render(controller("UlostAnnonceBundle:Annonce:showReponseByAnnonce", {"annonce":annonce})) }}
+            <div>Remarques : {{ annonce.remarque }}</div>
+            <div>Annonce postée le {{ annonce.date|date('d/m/Y') }}</div>
+
+
+
+
+        </td>
+        <td>
+            {% if  annonceCorrespondance.imageAnnonce is defined and annonceCorrespondance.imageAnnonce is not empty  %}
+                {{ render(controller("UlostAnnonceBundle:Annonce:showImageByAnnonce", {'annonce': annonceCorrespondance})) }}
+
+            {% else %}
+                {% if  annonceCorrespondance.object.image is defined and annonceCorrespondance.object.image is not empty  %}
+                    {{ render(controller("UlostObjectBundle:Object:showImageByObject", {'object_id': annonceCorrespondance.object.id})) }}
+                {% endif %}
+            {% endif %}
+            {{ render(controller("UlostAnnonceBundle:Annonce:showReponseByAnnonce", {"annonce":annonceCorrespondance})) }}
+            <div>Remarques : {{ annonceCorrespondance.remarque }}</div>
+            <div>Annonce postée le {{ annonceCorrespondance.date|date('d/m/Y') }}</div>
+
+        </td>
+    </tr>
+</table>

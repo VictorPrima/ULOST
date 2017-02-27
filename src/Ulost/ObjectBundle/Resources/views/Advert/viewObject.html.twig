@@ -1,0 +1,54 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+{% block Core_body %}
+
+    <h1>Liste des questions de l'objet {{ object.typeObjet }}</h1>
+
+    {{ render(controller("UlostObjectBundle:Object:showImageByObject", {'object_id': object.id})) }}
+
+    <div>
+        <a href="{{ path('ulost_index_category') }}" class="button">Retour</a>
+        <a href="{{ path('ulost_add_question', {'id':object.id}) }}" class="button">Ajouter une question</a>
+        <a href="{{ path('ulost_edit_object', {'id':object.id}) }}" class="button">Modifier l'objet</a>
+    </div>
+    <div>
+        <table>
+
+            <tr>
+                {# sorting of properties based on query components #}
+                <th>
+                    Id
+                </th>
+                <th>
+                    Ordre
+                </th>
+                <th>
+                    Coefficient
+                </th>
+                <th>
+                    Nom
+                </th>
+                <th>
+                    Type de question
+                </th>
+                <th>
+                    Obligatoire
+                </th>
+                <th>
+
+                </th>
+                <th>
+                    Réponses possibles
+                </th>
+            </tr>
+            <tr>
+                {{ render(controller("UlostObjectBundle:Object:indexQuestionByObject", {'id': object.id})) }}
+
+
+            </tr>
+
+
+        </table>
+    </div>
+    {# display navigation #}
+
+{% endblock %}

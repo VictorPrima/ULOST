@@ -1,0 +1,7 @@
+{# src/Ulost/AnnonceBundle/Resources/views/Home/faq_page.html.twig #}
+
+{% extends "UlostCoreBundle::layout.html.twig" %}
+
+	{% block Core_body %}
+	{{render(controller("UlostCoreBundle:Home:faq", {'nb_faq': nb_faq} )) }}
+{% endblock %}

@@ -1,0 +1,68 @@
+<h1>{{ question }}</h1>
+</br>
+	
+	{% if rep1 is not empty %}
+		<div class="radio">
+		<label class="radio-1">{{ rep1 }}	</label>
+		<input type="radio" name="question{{ num }}" value="{{ rep1 }}" id="radio-1" checked>
+		</div>
+	{% endif %}
+	{% if rep2 is not empty %}
+		<div class="radio">
+		<label class="check-2">	{{ rep2 }} </label>
+		<input type="radio" name="question{{ num }}" value="{{ rep2 }}" id="check-2">
+		</div>
+	{% endif %}
+	{% if rep3 is not empty %}
+		<div class="radio">
+		<label class="check-3">{{ rep3 }}	</label>
+		<input type="radio" name="question{{ num }}" value="{{ rep3 }}" id="check-3">
+		</div>
+	{% endif %}
+	{% if rep4 is not empty %}
+		<div class="radio">
+		<label class="check-4">{{ rep4 }}	</label>
+		<input type="radio" name="question{{ num }}" value="{{ rep4 }}" id="check-4">
+		</div>
+	{% endif %}
+	{% if rep5 is not empty %}
+		<div class="radio">
+		<label class="check-5">	{{ rep5 }}</label>
+		<input type="radio" name="question{{ num }}" value="{{ rep5 }}" id="check-5">
+		</div>
+	{% endif %}
+	{% if rep6 is not empty %}
+		<div class="radio">
+		<label class="check-6">	{{ rep6 }}</label>
+		<input type="radio" name="question{{ num }}" value="{{ rep6 }}" id="check-6">
+		</div>
+	{% endif %}
+	{% if rep7 is not empty %}
+		<div class="radio">
+		<label class="check-7">{{ rep7 }}	</label>
+		<input type="radio" name="question{{ num }}" value="{{ rep7 }}" id="check-7">
+		</div>
+	{% endif %}
+	{% if rep8 is not empty %}
+		<div class="radio">
+		<label class="check-8">{{ rep8 }}	</label>
+		<input type="radio" name="question{{ num }}" value="{{ rep8 }}" id="check-8">
+		</div>
+	{% endif %}
+	{% if rep9 is not empty %}
+		<div class="radio">
+		<label class="check-9">{{ rep9 }}</label>
+		<input type="radio" name="question{{ num }}" value="{{ rep9 }}" id="check-9">
+		</div>
+	{% endif %}
+	{% if rep10 is not empty %}
+		<div class="radio">
+		<label class="check-10"> {{rep10}}</label>
+		<input type="radio" name="question{{ num }}" value="{{ rep10 }}" id="check-10">
+		</div>
+	{% endif %}
+		
+		<div class="radio">
+		<label class="check-11"> Autre </label>
+		<input type="radio" name="question{{ num }}" value="autre" id="check_11">
+		</div>

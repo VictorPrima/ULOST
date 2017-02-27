@@ -1,0 +1,19 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+ {% block Core_body %}
+
+
+     <div><a href="{{ path('ulost_view_object', {'id': question.object.id} ) }}" class="button">{{ "Retour à l\'objet " }}{{ question.object.typeObjet }}</a></div>
+
+    <h3>
+        {{ "Question : " }} {{ question.name }}
+    </h3>
+
+     {{ 'Listes des réponses possibles :' }}
+
+    {{ include('UlostObjectBundle:Advert:indexAlternative.html.twig') }}
+
+
+     <div>
+         {{ render(controller("UlostObjectBundle:Object:addAlternative", {"id":question.id})) }}
+     </div>
+{% endblock %}

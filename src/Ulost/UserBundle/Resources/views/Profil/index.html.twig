@@ -1,0 +1,91 @@
+{# src/Ulost/UserBundle/Resources/views/user/index.html.twig #}
+{% extends "UlostCoreBundle::layout.html.twig" %}
+
+{% block Core_body %}
+
+    <div>
+
+        Bonjour
+
+        {% if user.username is defined and user.username is not empty %} {{ user.username }} {% endif %}
+
+
+    </div>
+    <div>
+
+        Vos informations personnelles :
+
+        </br> {{ "Age : " }}
+        {% if user.age is not empty %}
+            {{ user.age }}
+        {% else %}
+            Champ non renseigné
+        {% endif %}
+        </br>{{ "Téléphone :" }}
+        {% if user.phone is not empty %}
+            {{ user.phone }}
+        {% else %}
+            Champ non renseigné
+        {% endif %}
+        </br>{{ "Pays : " }}
+        {% if user.country is not empty %}
+            {{ user.country }}
+        {% else %}
+            Champ non renseigné
+        {% endif %}
+        </br>{{ 'Sexe : ' }}
+        {% if user.sexe is not empty %}
+            {{ user.sexe }}
+        {% else %}
+            Champ non renseigné
+        {% endif %}
+        </br>{{ 'Date de Naissance : ' }}
+        {% if user.birthdate is not empty %}
+            {{ user.birthdate|date("m/d/Y") }}
+        {% else %}
+            Champ non renseigné
+        {% endif %}
+        </br>{{ 'Code Postal : ' }}
+        {% if user.codepostal is not empty %}
+            {{ user.codePostal }}
+        {% else %}
+            Champ non renseigné
+        {% endif %}
+        </br>{{ 'Ville : ' }}
+        {% if user.town is not empty %}
+            {{ user.town }}
+        {% else %}
+            Champ non renseigné
+        {% endif %}
+        </br>{{ 'Nationalité : ' }}
+        {% if user.nationality is not empty %}
+            {{ user.nationality }}
+        {% else %}
+            Champ non renseigné
+        {% endif %}
+
+        </br>
+        <a href="{{ path('ulost_user_edit') }}" class="button">Modifier vos informations</a>
+        <a href="{{ path('ulost_user_annonce') }}" class="button">Voir vos annonces</a>
+    </div>
+
+    <h1>Liste de vos emplois </h1>
+    <table>
+
+        <tr>
+            {{ render(controller("UlostMunicipaleBundle:Emploi:showEmploiByUser", {'id':user.id})) }}
+        </tr>
+
+
+    </table>
+
+<div>
+    </br>
+    Nombre d'annonces : {{ render(controller("UlostUserBundle:Profil:NombreAnnonce")) }}
+    </br>
+</div>
+
+    <div>
+        {{ render(controller("UlostUserBundle:Profil:indexSuppressionCompte")) }}
+    </div>
+{% endblock %}

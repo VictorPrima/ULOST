@@ -1,0 +1,8 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+ {% block Core_body %}
+     <h1>Ajouter un emploi au service {{ service.name }}</h1>
+     <a href="{{ path('ulost_view_service', {'id':service.id}) }}" class="button">Retour à la liste des emplois</a>
+     {{ include("UlostMunicipaleBundle:Emploi:formEmploi.html.twig") }}
+ {% endblock %}
+
+

@@ -1,0 +1,42 @@
+
+<h3>{{ "Nombre total d'emplacements : " }}{{  pagination.getTotalItemCount }}</h3>
+
+
+<div>
+    <table>
+
+        <tr>
+            {# sorting of properties based on query components #}
+
+            <th{% if pagination.isSorted('emplacement.name') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(pagination, 'Emplacement', 'emplacement.name') }}
+            </th>
+            <th>
+                Nombre d'emplacements inférieurs
+            </th>
+
+        </tr>
+
+        {# table body #}
+        {% for emplacement in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>
+
+                    <a href="{{ path('ulost_view_emplacement', {'id':emplacement.id}) }}" class="button"> {{ emplacement.type }} {{ emplacement.name }}</a>
+
+                </td>
+
+                <td>
+                    {{ render(controller('UlostMunicipaleBundle:Emplacement:getNombreEnfants', {'id':emplacement.id})) }}
+                </td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+

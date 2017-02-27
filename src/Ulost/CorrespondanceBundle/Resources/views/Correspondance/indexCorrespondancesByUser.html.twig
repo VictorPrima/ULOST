@@ -1,0 +1,10 @@
+{# src/Ulost/AdminBundle/Resources/views/Objet/index.html.twig #}
+{% extends "UlostCoreBundle::layout.html.twig" %}
+
+{% block Core_body %}
+    <h2>Voir la liste des correspondances de l'utilisateur {{ user.username }}</h2>
+
+
+    {{ render(controller("UlostCorrespondanceBundle:Correspondance:showCorrespondancesByUser", {'id':user.id})) }}
+
+{% endblock %}

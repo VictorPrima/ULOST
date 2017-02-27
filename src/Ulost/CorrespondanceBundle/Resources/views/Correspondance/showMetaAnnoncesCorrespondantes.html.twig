@@ -1,0 +1,16 @@
+<td> <a href="{{ path('ulost_comparaison_correspondance', {'annonce_id':annonceParent.id, 'annonceCorrespondance_id': annonceCorrespondance.id }) }}"> {{annonceCorrespondance.id}} </a></td>
+<td> {{ annonceCorrespondance.status }}</td>
+<td> {{ annonceCorrespondance.user }}</td>
+{#<td><a href="{{ path('ulost_admin_annoncebyville',{'ville':annonceCorrespondance.ville} ) }}"> {{ annonceCorrespondance.ville }}</a></td>#}
+<td> {{ annonceCorrespondance.date|date('d/m/Y') }}</td>
+<td> {{ annonceCorrespondance.object.typeObjet }}</td>
+<td>{% if annonceCorrespondance.published==0  %}
+        Non
+    {% else %}
+        Oui
+    {% endif %}
+</td>
+<td> {% if annonceCorrespondance.ville  %}
+       {{ annonceCorrespondance.ville.name }}
+    {% endif %}
+</td>

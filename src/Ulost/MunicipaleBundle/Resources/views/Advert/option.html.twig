@@ -1,0 +1,40 @@
+<h1>{{ question.question }}</h1>
+</br>
+<div class="dropdown">
+	<select class="dropdown-select" name="question{{ num }}" >
+
+	{% if question.rep1 is not empty %}
+		<option value="question : {{question.rep1 }}"> {{ question.rep1 }}</option>
+	{% endif %}
+	{% if question.rep2 is not empty %}
+		<option value="question : {{ question.rep2 }}"> {{ question.rep2 }}</option>
+	{% endif %}
+	{% if question.rep3 is not empty %}
+		<option value="question : {{ question.rep3 }}"> {{ question.rep3 }}</option>
+	{% endif %}
+	{% if question.rep4 is not empty %}
+		<option value="question : {{ question.rep4 }}"> {{ question.rep4 }}</option>
+	{% endif %}
+	{% if question.rep5 is not empty %}
+		<option value="question : {{ question.rep5 }}"> {{ question.rep5 }}</option>
+	{% endif %}
+	{% if question.rep6 is not empty %}
+		<option value="question : {{ question.rep6 }}"> {{ question.rep6 }}</option>
+	{% endif %}
+	{% if question.rep7 is not empty %}
+		<option value="question : {{ question.rep7 }}"> {{ question.rep7 }}</option>
+	{% endif %}
+	{% if question.rep8 is not empty %}
+		<option value="question : {{ question.rep8 }}"> {{ question.rep8 }}</option>
+	{% endif %}
+	{% if question.rep9 is not empty %}
+		<option value="question : {{ question.rep9 }}"> {{ question.rep9 }}</option>
+	{% endif %}
+	{% if question.rep10 is not empty %}
+		<option value="question : {{ question.rep10 }}"> {{ question.rep10 }}</option>
+	{% endif %}
+	
+	<option value="question : autre"> Autre </option>
+	
+</select>
+</div>

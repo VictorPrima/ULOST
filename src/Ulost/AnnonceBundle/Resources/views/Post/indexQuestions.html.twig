@@ -1,0 +1,25 @@
+{% for question in listQuestion %}
+
+
+        <div>
+            {{ question.name }}
+        </div>
+
+
+            {% if question.obligatoire==1 %}
+                {{ "(Obligatoire)"}}
+            {% else %}
+
+            {% endif %}
+
+
+
+        {% if question.typeQuestion=="option" %}
+            <div>
+
+
+                {{ render(controller("UlostObjectBundle:Object:indexAlternativeByQuestion", {'id': question.id})) }}
+            </div>
+        {% endif %}
+
+{% endfor %}

@@ -1,0 +1,109 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/Match/annonce.html.twig #}
+
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+	{% block Municipale_body %}
+	
+	<a href="{{path('ulost_municipale_annonces_ville')}}" class="button"> Annonce de la ville</a>
+	<a href="{{path('ulost_municipale_stockpage')}}" class="button"> Annonce dans le stock </a>
+	
+	<h1> L'annonce en question </h1>
+	
+	<table>
+
+	<tr>
+		<th> / </th>
+		<th> celle ci </th>
+	</tr>
+	<tr>
+		<td> statut </td>
+		<td> {{annonce.perdutrouve}} </td>
+	</tr>
+	<tr>
+		<td> Objet </td>
+		<td> <img class="objet" src="{{ asset('images/objet/'~annonce.objet~'.png') }}"
+			width="60" height="60" alt="{{ annonce.objet }}" />
+		</td>
+	</tr>
+	<tr>
+		<td> Ville </td>
+		<td>{{annonce.ville}}</td>
+	</tr>
+	<tr> 
+		<td> Date </td>
+		<td>{{annonce.date|date('Y-m-d H:i')}}</td>
+	</tr>
+	{% if annonce.question1 is not empty %}
+		<tr>
+			<td>question 1 </td>
+			<td>{{ annonce.question1 }} </td>
+		</tr>
+	{% endif %}
+	
+	{% if annonce.question2 is not empty %}
+		<tr>
+			<td>question 2 </td>
+			<td>{{ annonce.question2 }} </td>
+		</tr>
+	{% endif %}
+	
+	{% if annonce.question3 is not empty %}
+		<tr>
+			<td>question 3 </td>
+			<td>{{ annonce.question3 }} </td>
+		</tr>
+	{% endif %}
+	
+	{% if annonce.question4 is not empty %}
+		<tr>
+			<td>question 4 </td>
+			<td>{{ annonce.question4 }} </td>
+		</tr>
+	{% endif %}
+	
+	{% if annonce.question5 is not empty %}
+		<tr>
+			<td>question 5 </td>
+			<td>{{ annonce.question5 }} </td>
+		</tr>
+	{% endif %}
+	
+	{% if annonce.question6 is not empty %}
+		<tr>
+			<td>question 6 </td>
+			<td>{{ annonce.question6 }} </td>
+		</tr>
+	{% endif %}
+	
+	{% if annonce.question7 is not empty %}
+		<tr>
+			<td>question 7 </td>
+			<td>{{ annonce.question7 }} </td>
+		</tr>
+	{% endif %}
+	
+	{% if annonce.question8 is not empty %}
+		<tr>
+			<td>question 8 </td>
+			<td>{{ annonce.question8 }} </td>
+		</tr>
+	{% endif %}
+	
+	{% if annonce.question9 is not empty %}
+		<tr>
+			<td>question 9 </td>
+			<td>{{ annonce.question9 }} </td>
+		</tr>
+	{% endif %}
+	
+	{% if annonce.question10 is not empty %}
+		<tr>
+			<td>question 10 </td>
+			<td>{{ annonce.question10 }} </td>
+		</tr>
+	{% endif %}
+	</table>
+	
+<a href="{{path('ulost_municipale_annonce_one_client', {'id': annonce.id } )}}" class="button"> Poursuivre la procédure </a>
+
+</br> </br>
+	{% endblock %}

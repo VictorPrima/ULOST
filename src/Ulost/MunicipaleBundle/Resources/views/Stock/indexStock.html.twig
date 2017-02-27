@@ -1,0 +1,51 @@
+
+<h3>{{ "Nombre total de stocks : " }}{{  pagination.getTotalItemCount }}</h3>
+
+
+<div>
+    <table>
+
+        <tr>
+            {# sorting of properties based on query components #}
+            <th{% if pagination.isSorted('e.type') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(pagination, 'Emplacement', 'e.type') }}
+            </th>
+            <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
+            <th{% if pagination.isSorted('a.status') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Status', 'a.status') }}</th>
+            <th{% if pagination.isSorted('u.name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Utilisateur', 'u.name') }}</th>
+            <th{% if pagination.isSorted('a.date') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Date de publication', 'a.date') }}</th>
+            <th{% if pagination.isSorted('o.typeObjet') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Type d\'objet', 'o.typeObjet') }}</th>
+            <th{% if pagination.isSorted('a.published') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Publiée', 'a.published') }}</th>
+            <th{% if pagination.isSorted('v.name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Ville', 'v.name') }}</th>
+
+
+
+        </tr>
+
+        {# table body #}
+        {% for stock in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>
+<a href="{{ path('ulost_edit_stock', {'id':stock.id}) }}" class="button">
+                    {% if stock.emplacement is defined and stock.emplacement is not empty %}
+                    {{ stock.emplacement.type }} {{ stock.emplacement.name }}
+                    {% else %}
+                    {{ "A ranger" }}
+                    {% endif %}
+</a>
+                </td>
+
+                {{ render(controller("UlostAnnonceBundle:Annonce:showMetadonnees", {'annonce_id': stock.annonce.id})) }}
+
+
+            </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+

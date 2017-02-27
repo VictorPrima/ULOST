@@ -1,0 +1,36 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/index.html.twig #}
+
+{% extends "UlostObjectBundle::layout.html.twig" %}
+	{% block Core_body %}
+
+        <div>
+
+            <h1>Statistiques du service {{ service.name }}</h1>
+
+            <p>Vous avez le rôle de {{ emploi.role }}</p>
+        </div>
+
+        <div>
+            {{ "Votre service gère actuellement " }}
+            {{ render(controller("UlostAnnonceBundle:Annonce:nbAnnonceByService", {'service':service} )) }}
+            {{ " annonces." }}
+        </div>
+        <div>
+            {{ "Votre service gère actuellement " }}
+            {{ render(controller("UlostCorrespondanceBundle:Correspondance:nbCorrespondancesByService", {'service':service} )) }}
+            {{ " correspondances." }}
+        </div>
+
+        <div>
+            {{ "Votre service a actuellement en stock " }}
+            {{ render(controller("UlostMunicipaleBundle:Stock:nbStockByService", {'service':service} )) }}
+            {{ " annonces." }}
+        </div>
+
+        <div>
+
+        </div>
+
+
+    {% endblock %}
+

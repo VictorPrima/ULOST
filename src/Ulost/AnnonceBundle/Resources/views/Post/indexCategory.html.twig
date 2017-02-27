@@ -1,0 +1,18 @@
+{% extends "UlostCoreBundle::layout.html.twig" %}
+{% block Core_body %}
+
+    {% if annonceParent is defined and annonceParent is not empty %}
+        <div>
+            Vous allez lier une annonce pour un objet de type {{ annonceParent.object.typeObjet }}
+        </div>
+    {% endif %}
+
+    <h1>{{ "Quel type d\'objet avez-vous " }}{% if status=="lost" %}{{ "perdu" }}{% elseif status=="found" %}{{ "trouvé" }}{% endif %}{{ " ?" }}</h1>
+    <div>
+        {{ include("UlostAnnonceBundle:Post:searchObjet.html.twig") }}
+    </div>
+    {{ render(controller("UlostAnnonceBundle:Post:showMenuObjet")) }}
+
+
+
+{% endblock %}

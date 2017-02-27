@@ -1,0 +1,30 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/Advert/objet.html.twig #}
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+{% block Municipale_body %}
+
+
+<h1>Indiquez l'objet de l'annonce</h1>
+
+<div class="content">
+	{% set category = 0 %}
+    {% for objet in listeobjet %}
+			
+			{% if objet.category.id is not same as(category) %}
+				<div class="categorie_objet">
+						<strong>{{ objet.category.name }}</strong>
+				</div>
+				{% set category = category +1 %}
+			{% endif %}
+			
+			<a href="{{ path('ulost_depot_annonce_details', {'id': objet.url }) }}" > 
+				<div class="objet">
+				<img
+					src="{{ asset('images/objet/'~objet.url~'.png') }}" 
+					width="80" height="80" alt="{{ objet.nom }}" />
+				</div>
+			</a>
+			
+			
+	{% endfor %}
+</div>
+{% endblock %}

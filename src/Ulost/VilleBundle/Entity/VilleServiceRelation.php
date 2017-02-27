@@ -1,0 +1,164 @@
+<?php
+
+namespace Ulost\VilleBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+use Symfony\Component\Validator\Constraints as Assert;
+use Ulost\AnnonceBundle\Entity\Annonce;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\VirtualProperty;
+
+
+
+/**
+ * VilleServiceRelation
+ *
+ * @ORM\Table(name="VilleServiceRelation")
+
+ * @ORM\Entity(repositoryClass="Ulost\VilleBundle\Repository\VilleServiceRelationRepository")
+ */
+class VilleServiceRelation
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * @var string
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(name="principale", type="boolean", options={"default":0}))
+     */
+    private $principale;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Ulost\VilleBundle\Entity\Ville", inversedBy="villeServiceRelations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ville;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Ulost\MunicipaleBundle\Entity\Service", inversedBy="villeServiceRelations", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $service;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return VilleServiceRelation
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set principale
+     *
+     * @param boolean $principale
+     *
+     * @return VilleServiceRelation
+     */
+    public function setPrincipale($principale)
+    {
+        $this->principale = $principale;
+
+        return $this;
+    }
+
+    /**
+     * Get principale
+     *
+     * @return boolean
+     */
+    public function getPrincipale()
+    {
+        return $this->principale;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param \Ulost\VilleBundle\Entity\Ville $ville
+     *
+     * @return VilleServiceRelation
+     */
+    public function setVille(\Ulost\VilleBundle\Entity\Ville $ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return \Ulost\VilleBundle\Entity\Ville
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set service
+     *
+     * @param \Ulost\MunicipaleBundle\Entity\Service $service
+     *
+     * @return VilleServiceRelation
+     */
+    public function setService(\Ulost\MunicipaleBundle\Entity\Service $service)
+    {
+        $this->service = $service;
+
+        return $this;
+    }
+
+    /**
+     * Get service
+     *
+     * @return \Ulost\MunicipaleBundle\Entity\Service
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+}

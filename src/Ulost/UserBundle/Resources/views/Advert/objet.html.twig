@@ -1,0 +1,29 @@
+{# src/Ulost/UserBundle/Resources/views/Advert/index.html.twig #}
+{% extends "UlostUserBundle::layout.html.twig" %}
+{% block User_body %}
+
+
+<p><a href="{{ path('ulost_user_annonce') }}"> Vos annonces </a></p>
+<div class="recapitulatif">
+	<strong>Recapitulatif de l'annonce {{annonce.id}}</strong>
+	
+	<p>{{annonce.objet}}: {{ annonce.perduTrouve }}</p>
+	
+	<img class="objet" src="{{ asset('images/objet/'~annonce.objet~'.png') }}"
+			width="90" height="90" alt="{{ annonce.objet }}" />
+
+	<p> {{annonce.question1}} </p>
+	<p> {{annonce.question2}} </p>
+	<p> {{annonce.question3}} </p>
+	<p> {{annonce.question4}} </p>
+	<p> {{annonce.question5}} </p>
+	<p> {{annonce.question6}} </p>
+	<p> {{annonce.question7}} </p>
+	<p> {{annonce.question8}} </p>
+	<p> {{annonce.question9}} </p>
+	<p> {{annonce.question10}} </p>
+	
+	<p> remarques: {{ annonce.remarques }} </p>
+	<p> Ville concernée: {{ annonce.ville }} </p>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+
+<h3>Ajouter une ville au service</h3>
+
+
+<div class="well">
+
+
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ include("UlostVilleBundle:Ville:index.html.twig") }}
+    {{ form_row(form.name) }}
+
+
+
+    {{ form_end(form) }}
+
+</div>
+
+
+

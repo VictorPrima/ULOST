@@ -1,0 +1,29 @@
+{# src/Ulost/CoreBundle/Resources/views/Advert/objet.html.twig #}
+{% extends "UlostCoreBundle::layout.html.twig" %}
+{% block Core_body %}
+
+
+<h1>Indiquez l'objet que vous avez {{ perdu_trouve }}</h1>
+
+<div class="content">
+    {% for objet in listeobjet %}
+			
+			{% if objet.categorie is not empty %}
+				<div class="categorie_objet">
+					<strong>{{ objet.categorie }}</strong>
+				</div>
+			{% endif %}
+			
+			
+			<a href="{{ path('ulost_annonce_details', {'id': objet.url, 'perdu_trouve': perdu_trouve }) }}" > 
+				<div class="objet">
+				<img
+					src="{{ asset('images/objet/'~objet.url~'.png') }}" 
+					width="90" height="90" alt="{{ objet.nom }}" />
+				</div>
+			</a>
+	
+			
+	{% endfor %}
+</div>
+{% endblock %}

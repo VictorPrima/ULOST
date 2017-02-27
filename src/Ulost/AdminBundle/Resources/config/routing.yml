@@ -1,0 +1,54 @@
+ulost_admin_homepage:
+    path:     /
+    defaults: { _controller: UlostAdminBundle:Home:index }
+
+ulost_index_users:
+    path:     /user
+    defaults: { _controller: UlostAdminBundle:User:indexUsers }
+
+ulost_edit_user:
+    path:     /user/{id}
+    defaults: { _controller: UlostAdminBundle:User:editUser }
+    requirements:
+        id:     \d+
+
+ulost_admin_objetpage:
+    path:     /objet
+    defaults: { _controller: UlostAdminBundle:Objet:index }
+
+ulost_admin_oneobjetpage:
+    path:     /objet/{id}
+    defaults: { _controller: UlostCoreBundle:Objet:indexone }
+    requirements:
+        id:     \d+
+
+ulost_admin_annoncebyville:
+    path:     /annonce/indexByVille/{ville_id}
+    defaults: { _controller: UlostAnnonceBundle:Annonce:indexByVille }
+    requirements:
+            id:     \d+
+
+ulost_admin_annoncebyUser:
+    path:     /annonce/indexByUser/{user_id}
+    defaults: { _controller: UlostAnnonceBundle:Annonce:indexByUser }
+    requirements:
+            id:     \d+
+
+ulost_admin_annoncebyType:
+    path:     /annonce/indexByType/{type_id}
+    defaults: { _controller: UlostAnnonceBundle:Annonce:indexByType }
+    requirements:
+             id:     \d+
+
+ulost_admin_annonceall:
+    path:     /index_all_annonce/{page}
+    defaults: { _controller: UlostAnnonceBundle:Annonce:indexAllAnnonce , page:1}
+
+ulost_admin_annonceallPublished:
+    path:     /annonceall/published
+    defaults: { _controller: UlostAnnonceBundle:Annonce:showAllAnnoncePublished }
+
+ulost_admin_annonce:
+    path:     /annonce
+    defaults: { _controller: UlostAdminBundle:Annonce:index }
+

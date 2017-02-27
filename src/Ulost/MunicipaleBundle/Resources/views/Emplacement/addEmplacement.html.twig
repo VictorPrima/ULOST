@@ -1,0 +1,14 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+ {% block Core_body %}
+
+   <div>  <h1>Ajouter un emplacement au service {{ service.name }}</h1></div>
+
+{% if  service.parent is defined and service.parent is not empty%}
+     <a href="{{ path('ulost_view_emplacement', {'id':service.parent.id}) }}" class="button">Retour à l'emplacement parent</a>
+{% else %}
+<a href="{{ path('ulost_index_emplacements_principaux', {'id':service.id}) }}" class="button">Retour aux emplacements principaux</a>
+{% endif %}
+     {{ include("UlostMunicipaleBundle:Emplacement:formEmplacement.html.twig") }}
+ {% endblock %}
+
+

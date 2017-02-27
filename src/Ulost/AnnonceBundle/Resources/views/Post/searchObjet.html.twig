@@ -1,0 +1,13 @@
+
+    <div>
+        <form action="{{ path('ulost_annonce_newAnnonceBis', {'status': status} ) }}" method="POST" >
+<input type="text" id="object" name="object" size="20" data-suggestion="{{ path('search_object') }}" placeholder="Objet concerné" />
+<input type="text" id="category"  readonly="readonly" placeholder="Categorie" />
+<input type="hidden" id="objectId" name="objectId" readonly="readonly" />
+            <button type="submit" name="validate" value="ok"> Compléter l'annonce </button>
+        </form>
+    </div>
+
+
+
+

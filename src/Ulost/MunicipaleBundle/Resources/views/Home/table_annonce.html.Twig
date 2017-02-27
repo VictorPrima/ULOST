@@ -1,0 +1,19 @@
+<table>
+		<tr>
+			<th> id </th>
+			<th> perdu ou trouvé </th>
+			<th> objet </th>
+			<th> Lieu </th>
+			<th> date </th>
+		<tr>
+		
+		{% for annonce in listeannonce %}
+		<tr>
+			<td> <a href="{{path('ulost_municipale_annonce_one', {'id': annonce.id })}}"> {{annonce.id}} </a> </td>
+			<td class="{{annonce.perdutrouve}}"> {{annonce.perdutrouve}} </td>
+			<td> {{ annonce.ville }}
+			<td> {{annonce.objet }} </td>
+			<td> {{annonce.date|date("H:i:s \\l\\e d/m/Y")}} </td>
+		<tr>
+		{% endfor %}
+	</table>

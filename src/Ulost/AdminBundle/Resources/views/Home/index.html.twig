@@ -1,0 +1,24 @@
+{# src/Ulost/AnnonceBundle/Resources/views/Home/index.html.twig #}
+
+{% extends "UlostCoreBundle::layout.html.twig" %}
+	{% block Core_body %}
+
+        {% for flash_message in app.session.flashbag.get('notice') %}
+            <div class="flash-notice">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
+
+        <h1>Administration</h1>
+
+        <div class="wrap">
+        <a href="{{ path('ulost_index_category') }}" class="button">Gérer les objets</a>
+        <a href="{{ path('ulost_admin_annonceall' )}}" class="button">Gérer les annonces</a>
+        <a href="{{ path('ulost_index_users') }}" class="button">Gérer les utilisateurs</a>
+        <a href="{{ path('ulost_index_service') }}" class="button">Gérer les services municipaux</a>
+        </div>
+
+
+
+    {% endblock %}

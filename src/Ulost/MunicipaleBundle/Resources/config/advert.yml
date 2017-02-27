@@ -1,0 +1,39 @@
+ulost_municipale_depot_annonce_ville:
+    path:     /{perdu_trouve}
+    defaults: { _controller: UlostMunicipaleBundle:Advert:objet }
+    requirements:
+        "perdu_trouve": "perdu|trouvé"
+
+ulost_depot_annonce_details:
+    path:     /objet/{id}
+    defaults: { _controller: UlostMunicipaleBundle:Advert:details }
+
+ulost_municipale_depot_contact:
+    path:    /contact
+    defaults: { _controller: UlostMunicipaleBundle:Advert:contact }
+
+ulost_municipale_depot_first:
+    path:    /first
+    defaults: { _controller: UlostMunicipaleBundle:Advert:first }
+
+ulost_depot_annonce_emplacement:
+    path:    /emplacement
+    defaults: { _controller: UlostMunicipaleBundle:Advert:emplacement }
+
+ulost_depot_annonce_last:
+    path:     /last
+    defaults: { _controller: UlostMunicipaleBundle:Advert:last }
+
+ulost_depot_annonce_save:
+    path:    /save
+    defaults:  { _controller: UlostMunicipaleBundle:Advert:save }
+
+ulost_index_annonce_by_service:
+    path:     /indexAll
+    defaults: { _controller: UlostMunicipaleBundle:Advert:indexAnnonces }
+
+ulost_index_parameters:
+    path:     /{id}/indexParameters
+    defaults: { _controller: UlostMunicipaleBundle:Match:indexParameters }
+    requirements:
+      "id": \d+

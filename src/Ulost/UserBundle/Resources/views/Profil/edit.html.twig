@@ -1,0 +1,22 @@
+{# src/Ulost/UserBundle/Resources/views/user/index.html.twig #}
+{% extends "UlostUserBundle::layout.html.twig" %}
+
+{% block Core_body %}
+
+    <div>
+        </br>
+        Bonjour
+
+        {% if user.firstname is not empty %} {{user.firstname}} {% endif %}
+        {% if user.name is not empty %} {{user.name}} {% endif %} </br>
+        {% if user.grade is not empty %} Grade: {{user.grade}}</br> {% endif %}
+
+    </div>
+
+    <div class="well">
+
+        {{ form(form) }}
+
+    </div>
+
+{% endblock %}

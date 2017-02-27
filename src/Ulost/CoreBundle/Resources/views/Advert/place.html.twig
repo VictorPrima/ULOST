@@ -1,0 +1,21 @@
+{# src/Ulost/CoreBundle/Resources/views/Advert/place.html.twig #}
+{% extends "UlostCoreBundle::layout.html.twig" %}
+{% block Core_body %}
+
+{{ render(controller("UlostCoreBundle:Advert:showRecap")) }}
+
+<h1>Place</h1>
+
+<form action="{{ path('ulost_annonce_save') }}" method="POST">
+	<label> Le code postal </label>
+	<input class="cp" maxlength="5" type="text" placeholder="Code Postal" />
+	<label> La ville </label>
+	<input type="text" class="ville" name="ville" >
+
+	</br></br>
+	
+	<button type="submit" name="validate" value="ok"> Suivant </button>
+
+</form>
+	</br></br>
+{% endblock %}

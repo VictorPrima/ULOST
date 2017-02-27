@@ -1,0 +1,25 @@
+{# src/Ulost/AnnonceBundle/Resources/views/Home/index.html.twig #}
+
+{% extends "UlostAnnonceBundle::layout.html.twig" %}
+	{% block Core_body %}
+
+
+
+
+<h2>Annonce : objet
+       {% if status =="lost" %}
+           {{ "perdu" }}
+           {% else %}
+               {{ "trouvé" }}
+               {% endif %}
+               {{ " de type " }}
+        {{ object.typeObjet }}
+</h2>
+<div>
+
+
+        {{ include("UlostAnnonceBundle:Post:formAnnonce.html.twig") }}
+
+
+</div>
+    {% endblock %}

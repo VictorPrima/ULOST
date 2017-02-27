@@ -1,0 +1,25 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+{% block Core_body %}
+
+
+
+
+    <div>
+        <a href="{{ path('ulost_view_service', {'id':villeServiceRelation.service.id}) }}" class="button">Retour</a>
+        <a href="{{ path('ulost_edit_villeServiceRelation', {'id':villeServiceRelation.id}) }}" class="button">Modifier la relation</a>
+    </div>
+    <div>
+
+        <h1>Service {{ villeServiceRelation.service.name }}</h1>
+        <div>
+            {{  villeServiceRelation.ville.name }}
+        </div>
+
+        <div>
+           {{  villeServiceRelation.name }}
+        </div>
+
+    </div>
+    {# display navigation #}
+
+{% endblock %}

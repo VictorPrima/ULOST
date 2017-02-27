@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="=device-width, initial-scale=1">
+    <title>{% block title %} Ulost{% endblock %}</title>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    {% block stylesheets %}
+        {% stylesheets '@UlostCoreBundle/Resources/public/css/*'  filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('logo.ico') }}"/>
+    {% endblock %}
+
+
+    <?php include_javascripts() ?>
+</head>
+<body>
+
+
+<div id="sidebar">
+    {% block sidebar %}
+        {#    {{ render(controller("UlostCoreBundle:Home:indexLanguage")) }}    #}
+        {{ render(controller("UlostCoreBundle:Home:menu")) }}
+    {% endblock %}
+</div>
+<div id="content">
+    <div class="image_accueil">
+        <a {% if is_granted('ROLE_VILLE') and service is defined and service is not empty %}
+                href="{{ path('ulost_service_accueil', {'id':service.id}) }}">
+
+            {% else %}
+                href="{{ path('ulost_home') }}">
+            {% endif %}
+
+
+            {% image '@UlostCoreBundle/Resources/public/images/fonctionnement/jumelle_ulost.png' %}
+            <img src="{{ asset_url }}" class="jumelle_ulost"/>
+            {% endimage %}
+            {% image '@UlostCoreBundle/Resources/public/images/fonctionnement/ulost.png' %}
+            <img src="{{ asset_url }}" class="ulost_logo"/>
+            {% endimage %}
+
+        </a>
+    </div>
+
+    {% block body %}
+
+    {% endblock %}
+</div>
+<div id="footer">
+    {% block footer %}
+        {{ render(controller("UlostCoreBundle:Home:showFooter")) }}
+    {% endblock %}
+</div>
+</body>
+
+
+{% block javascripts %}
+
+    {% javascripts '@UlostCoreBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+
+
+    {% endjavascripts %}
+
+
+
+{% endblock %}
+<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+<script src="{{ asset('js/bootstrap3-typeahead.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/villeSearch.js') }}"></script>
+<script src="{{ asset('js/accordion.js') }}"></script>
+<script src="{{ asset('js/objetSearch.js') }}"></script>
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+</html>

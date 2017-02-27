@@ -1,0 +1,142 @@
+<?php
+// src/Ulost/UserBundle/Entity/User.php
+
+namespace Ulost\UserBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+use Ulost\AnnonceBundle\Entity\Annonce;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     */
+    protected $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Ulost\AnnonceBundle\Entity\Annonce", mappedBy="user", cascade={"persist"})
+     **/
+
+    private $annonces;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
+     */
+    protected $firstname;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="age", type="integer", nullable=true)
+     */
+    protected $age;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="user", type="integer", nullable=true)
+     */
+    protected $user;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", nullable=true)
+     */
+    protected $phone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
+     */
+    protected $country;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexe", type="string", length=255, nullable=true)
+     */
+    protected $sexe;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birth_date", type="date", nullable=true)
+     */
+    protected $birthDate;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="code_postal", type="integer", nullable=true)
+     */
+    protected $codePostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="town", type="string", length=255, nullable=true)
+     */
+    protected $town;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationality", type="string", length=255, nullable=true)
+     */
+    protected $nationality;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="profile_picture", type="integer", nullable=true)
+     */
+    protected $profilePicture;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nb_lost", type="integer", nullable=true)
+     */
+    protected $nbLost;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nb_found", type="integer", nullable=true)
+     */
+    protected $nbFound;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grade", type="string", length=255, nullable=true)
+     */
+    protected $grade;
+
+    /**
+     * 
+     * @ORM\OneToMany(targetEntity="Ulost\MunicipaleBundle\Entity\Emploi", mappedBy="user", cascade={"persist"})
+     *
+     */
+    private $emplois;
+
+}

@@ -1,0 +1,137 @@
+ulost_service_accueil:
+    path:     /{id}
+    defaults: { _controller: UlostMunicipaleBundle:Home:index }
+    requirements:
+        id: \d+
+ulost_municipale_parametres:
+    path:     /parametres
+    defaults: { _controller: UlostMunicipaleBundle:Parametre:index }
+
+ulost_municipale_parametres_employe:
+    path:     /parametres/employe
+    defaults: { _controller: UlostMunicipaleBundle:Parametre:employe }
+
+ulost_municipale_parametres_partenaire:
+    path:     /parametres/partenaire
+    defaults: { _controller: UlostMunicipaleBundle:Parametre:Partenaire }
+
+ulost_municipale_statistiques:
+    path:     /statistiques
+    defaults: { _controller: UlostMunicipaleBundle:Home:statistiques }
+
+ulost_municipale_stock:
+    resource: "@UlostMunicipaleBundle/Resources/config/stock.yml"
+    prefix:    /stock
+
+ulost_municipale_annonce:
+    resource: "@UlostMunicipaleBundle/Resources/config/advert.yml"
+    prefix:   /annonce
+
+ulost_municipale_ville:
+    resource: "@UlostMunicipaleBundle/Resources/config/ville.yml"
+    prefix:    /annonces-de-la-ville
+
+ulost_municipale_annonce_one:
+    path:     /annonce/{id}
+    defaults:  { _controller: UlostMunicipaleBundle:Match:index }
+    requirements:
+        id: \d+
+
+ulost_municipale_annonce_one_client:
+    path:    /annonce/{id}/client
+    defaults:    { _controller: UlostMunicipaleBundle:Match:client }
+    requirements:
+        id:  \d+
+
+
+
+ulost_add_service:
+    path : /addService
+    defaults: { _controller: UlostMunicipaleBundle:Service:addService }
+
+ulost_index_service:
+    path : /indexService
+    defaults: { _controller: UlostMunicipaleBundle:Service:indexService }
+
+ulost_edit_service:
+    path : /editservice/{id}
+    defaults: { _controller: UlostMunicipaleBundle:Service:editService}
+    requirements:
+          id:     \d+
+
+ulost_view_service:
+    path:     /viewService/{id}
+    defaults: { _controller: UlostMunicipaleBundle:Service:viewService }
+    requirements:
+        id:     \d+
+
+ulost_remove_service:
+    path:     /removeService/{id}
+    defaults: { _controller: UlostMunicipaleBundle:Service:removeService }
+    requirements:
+        id:     \d+
+
+
+
+ulost_add_emploi:
+    path : /{id}/addEmploi
+    defaults: { _controller: UlostMunicipaleBundle:Emploi:addEmploi}
+    requirements:
+          id:     \d+
+
+ulost_edit_emploi:
+    path : /editEmploi/{id}
+    defaults: { _controller: UlostMunicipaleBundle:Emploi:editEmploi}
+    requirements:
+          id:     \d+
+
+ulost_remove_emploi:
+    path : /removeEmploi/{id}
+    defaults: { _controller: UlostMunicipaleBundle:Emploi:removeEmploi}
+    requirements:
+          id:     \d+
+
+
+
+ulost_add_villeServiceRelation:
+    path : /{id}/addVilleServiceRelation
+    defaults: { _controller: UlostVilleBundle:VilleServiceRelation:addVilletoService}
+    requirements:
+          id:     \d+
+
+ulost_index_emplacements_principaux:
+    path:     /{id}/EmplacementsPrincipaux
+    defaults: { _controller: UlostMunicipaleBundle:Emplacement:indexEmplacementPrincipaux }
+    requirements:
+        id:     \d+
+
+ulost_add_emplacement_principal:
+    path:     /{id}/addEmplacementPrincipal
+    defaults: { _controller: UlostMunicipaleBundle:Emplacement:addEmplacementPrincipal }
+    requirements:
+        id:     \d+
+
+ulost_add_emplacement:
+    path:     /addEmplacement/{id}
+    defaults: { _controller: UlostMunicipaleBundle:Emplacement:addEmplacementEnfant }
+    requirements:
+        id:     \d+
+
+ulost_edit_emplacement:
+    path:     /editEmplacement/{id}
+    defaults: { _controller: UlostMunicipaleBundle:Emplacement:editEmplacement }
+    requirements:
+        id:     \d+
+
+ulost_view_emplacement:
+    path:     /viewEmplacement/{id}
+    defaults: { _controller: UlostMunicipaleBundle:Emplacement:viewEmplacement }
+    requirements:
+        id:     \d+
+
+ulost_menu_emplacement:
+    path:     /{id}/menuEmplacement
+    defaults: { _controller: UlostMunicipaleBundle:Emplacement:showMenuEmplacement }
+    requirements:
+        id:     \d+
+

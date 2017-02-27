@@ -1,0 +1,20 @@
+
+
+    <div> {#
+    {% if  object.image is defined and  object.image is not empty %}
+
+                   <a href="{{ path('ulost_annonce_newAnnonce', {'status': status,'object_id':object.id} ) }}">
+                       {{ render(controller("UlostObjectBundle:Object:showImageByObject", {'object_id': object.id})) }}
+                   </a>
+
+               {% else %}  Pas encore d'image pour l'objet {{ object.typeObjet }}
+               {% endif %}
+               #}
+    </div>
+        <div>
+<a href="{{ path('ulost_annonce_newAnnonce', {'status': status,'object_id':object.id} ) }}"
+                       class="button">
+                       <h3>{{ object.typeObjet }}</h3>
+                   </a>
+        </div>
+

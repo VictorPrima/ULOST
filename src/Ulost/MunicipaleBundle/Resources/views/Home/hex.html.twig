@@ -1,0 +1,76 @@
+ 
+<div class="menu_municipale">
+	<a href="{{ path('ulost_index_correspondance_by_service',{'id':service.id}) }}">
+		<div class="hex hex-1 hex-gap">		
+			<div class="inner">
+					<h4>Match</h4>
+					<hr />
+					<p>Consultation</p>
+			</div>		
+			<div class="corner-1"></div>
+			<div class="corner-2"></div>		
+		</div>
+	</a>
+	<a href="{{ path('ulost_index_stock_by_service',{'id':service.id}) }}">
+		<div class="hex hex-2">		
+			<div class="inner">
+					<h4>STOCK</h4>
+					<hr />
+					<p>Ce qu'il y a dans le stock</p>
+			</div>		
+			<div class="corner-1"></div> <div class="corner-2"></div>		
+		</div>
+	</a>
+	<a href="{{ path('ulost_municipale_statistiques') }}">
+		<div class="hex hex-1">		
+			<div class="inner">
+					<h4>STATISTIQUES</h4>
+					<hr />
+					<p>statistiques du service</p>
+			</div>		
+			<div class="corner-1"></div> <div class="corner-2"></div>		
+		</div>	
+	</a>
+	<a href="{{ path('ulost_index_annonce_by_service') }}">
+		<div class="hex hex-1">
+			<div class="inner">
+					<h4>VILLES</h4>
+					<hr />
+					<p>Toutes les annonces</p>
+			</div>
+			<div class="corner-1"></div> <div class="corner-2"></div>
+		</div>
+	</a>
+	<a href="{{ path('ulost_new_stock', {'status': "lost", 'id':service.id}) }}">
+		<div class="hex hex-3">		
+			<div class="inner-3">
+					<h4>ANNONCE</h4>
+					<hr />
+					<p>Objet PERDU</p>
+			</div>		
+			<div class="corner-1"></div> <div class="corner-2"></div>		
+		</div>	
+	</a>
+	<a href="{{ path('ulost_new_stock', {'status': "found", 'id':service.id}) }}">
+		<div class="hex hex-3">		
+			<div class="inner-3">
+					<h4>ANNONCE</h4>
+					<hr />
+					<p>	Objet TROUVE </p>
+			</div>		
+			<div class="corner-1"></div> <div class="corner-2"></div>		
+		</div>
+	</a>
+		<a href="{{ path('ulost_view_service',{'id':service.id}) }}">
+		<div class="hex hex-2">		
+			<div class="inner">
+					<h4>GESTION</h4>
+					<hr />
+					<p>Paramètres du service</p>
+			</div>		
+			<div class="corner-1"></div> <div class="corner-2"></div>		
+		</div>	
+	</a>
+</div>
+
+	

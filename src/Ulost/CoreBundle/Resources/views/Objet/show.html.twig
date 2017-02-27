@@ -1,0 +1,17 @@
+<table>
+	<tr>
+		<td> voir les questions </td>
+		<td> nom </td>
+		<td> url </td> 
+		<td> questions </td>
+	<tr>
+	
+    {% for objet in listobjet %}
+    <tr>    
+		<td> <a href="{{ path('ulost_admin_oneobjetpage', {'id': objet.id }) }}"> {{objet.id}} </a></td>
+		<td> {{ objet.nom }}</td>
+		<td> {{ objet.url }}</td>
+		<td> {{ objet.questions }}</td>
+	</tr>	
+		{% endfor %}
+</table>

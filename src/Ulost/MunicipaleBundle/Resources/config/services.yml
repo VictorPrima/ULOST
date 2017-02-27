@@ -1,0 +1,8 @@
+services:
+#    ulost_municipale.example:
+#        class: Ulost\MunicipaleBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+ AnnonceAction:
+        class: Ulost\AnnonceBundle\Controller\AnnonceController
+        calls:
+                    - [setContainer, ["@service_container"]]

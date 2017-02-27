@@ -1,0 +1,40 @@
+
+{% extends "UlostCoreBundle::layout.html.twig" %}
+
+{% block Core_body %}
+
+<div>
+<h1>
+    Attention, supprimer votre compte supprimera toutes vos annonces.
+</h1>
+    <div>
+       {{  "Vous avez posté " }}
+        {{ render(controller("UlostUserBundle:Profil:NombreAnnonce")) }}
+        {{ " annonces dont " }}
+        {{ render(controller("UlostUserBundle:Profil:NombreAnnonceActive")) }}
+        {{ " sont encore actives." }}
+    </div>
+
+</div>
+
+{{ suppressKey }}
+    <a onclick="myFunction({{ suppressKey }})" class="button">Suppression du compte</a>
+    <script>
+
+        function myFunction(suppressKey) {
+            console.log(suppressKey);
+          if(window.confirm("Attention cette action supprimera définitevement votre compte ainsi que toutes les annonces qui y sont associées ! "
+                + "\n"
+                + "Voulez vous continuer ?")==true){
+              window.location.replace("suppressionTotale/"+ suppressKey);
+
+          }
+
+        }
+
+    </script>
+
+   {% if route is defined and route is not empty %} {{ route }}{% endif %}
+
+{% endblock %}
+

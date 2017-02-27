@@ -1,0 +1,58 @@
+<?php
+
+namespace Ulost\VilleBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+use Symfony\Component\Validator\Constraints as Assert;
+use Ulost\AnnonceBundle\Entity\Annonce;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\VirtualProperty;
+
+
+
+/**
+ * Agglomeration
+ *
+ * @ORM\Table(name="agglomeration")
+
+ * @ORM\Entity(repositoryClass="Ulost\VilleBundle\Repository\AgglomerationRepository")
+ */
+class Agglomeration
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * @var string
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(name="principale", type="boolean", options={"default":0}))
+     */
+    private $principale;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Ulost\VilleBundle\Entity\Ville", inversedBy="agglomérations", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ville;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Ulost\MunicipaleBundle\Entity\Service", inversedBy="agglomérations", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $service;
+}

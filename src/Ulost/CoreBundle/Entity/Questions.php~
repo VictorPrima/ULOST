@@ -1,0 +1,407 @@
+<?php
+
+namespace Ulost\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Questions
+ *
+ * @ORM\Table(name="questions")
+ * @ORM\Entity(repositoryClass="Ulost\CoreBundle\Repository\QuestionsRepository")
+ */
+class Questions
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="question", type="string", length=255)
+     */
+    private $question;
+
+	 /**
+     * @var string
+     *
+     * @ORM\Column(name="code_html", type="string", length=255)
+     */
+    private $code_html;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rep1", type="string", length=255)
+     */
+    private $rep1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rep2", type="string", length=255)
+     */
+    private $rep2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rep3", type="string", length=255)
+     */
+    private $rep3;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rep4", type="string", length=255)
+     */
+    private $rep4;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rep5", type="string", length=255)
+     */
+    private $rep5;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rep6", type="string", length=255)
+     */
+    private $rep6;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rep7", type="string", length=255)
+     */
+    private $rep7;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rep8", type="string", length=255)
+     */
+    private $rep8;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rep9", type="string", length=255)
+     */
+    private $rep9;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rep10", type="string", length=255)
+     */
+    private $rep10;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set question
+     *
+     * @param string $question
+     *
+     * @return Questions
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * Get question
+     *
+     * @return string
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+	
+	/**
+     * Set code_html
+     *
+     * @param string $code_html
+     *
+     * @return code_html
+     */
+    public function setCodeHtml($code_html)
+    {
+        $this->code_html = $code_html;
+
+        return $this;
+    }
+	
+	/**
+     * Get code_html
+     *
+     * @return string
+     */
+    public function getCodeHtml()
+    {
+        return $this->code_html;
+    }
+
+    /**
+     * Set rep1
+     *
+     * @param string $rep1
+     *
+     * @return Questions
+     */
+    public function setRep1($rep1)
+    {
+        $this->rep1 = $rep1;
+
+        return $this;
+    }
+
+    /**
+     * Get rep1
+     *
+     * @return string
+     */
+    public function getRep1()
+    {
+        return $this->rep1;
+    }
+
+    /**
+     * Set rep2
+     *
+     * @param string $rep2
+     *
+     * @return Questions
+     */
+    public function setRep2($rep2)
+    {
+        $this->rep2 = $rep2;
+
+        return $this;
+    }
+
+    /**
+     * Get rep2
+     *
+     * @return string
+     */
+    public function getRep2()
+    {
+        return $this->rep2;
+    }
+
+    /**
+     * Set rep3
+     *
+     * @param string $rep3
+     *
+     * @return Questions
+     */
+    public function setRep3($rep3)
+    {
+        $this->rep3 = $rep3;
+
+        return $this;
+    }
+
+    /**
+     * Get rep3
+     *
+     * @return string
+     */
+    public function getRep3()
+    {
+        return $this->rep3;
+    }
+
+    /**
+     * Set rep4
+     *
+     * @param string $rep4
+     *
+     * @return Questions
+     */
+    public function setRep4($rep4)
+    {
+        $this->rep4 = $rep4;
+
+        return $this;
+    }
+
+    /**
+     * Get rep4
+     *
+     * @return string
+     */
+    public function getRep4()
+    {
+        return $this->rep4;
+    }
+
+    /**
+     * Set rep5
+     *
+     * @param string $rep5
+     *
+     * @return Questions
+     */
+    public function setRep5($rep5)
+    {
+        $this->rep5 = $rep5;
+
+        return $this;
+    }
+
+    /**
+     * Get rep5
+     *
+     * @return string
+     */
+    public function getRep5()
+    {
+        return $this->rep5;
+    }
+
+    /**
+     * Set rep6
+     *
+     * @param string $rep6
+     *
+     * @return Questions
+     */
+    public function setRep6($rep6)
+    {
+        $this->rep6 = $rep6;
+
+        return $this;
+    }
+
+    /**
+     * Get rep6
+     *
+     * @return string
+     */
+    public function getRep6()
+    {
+        return $this->rep6;
+    }
+
+    /**
+     * Set rep7
+     *
+     * @param string $rep7
+     *
+     * @return Questions
+     */
+    public function setRep7($rep7)
+    {
+        $this->rep7 = $rep7;
+
+        return $this;
+    }
+
+    /**
+     * Get rep7
+     *
+     * @return string
+     */
+    public function getRep7()
+    {
+        return $this->rep7;
+    }
+
+    /**
+     * Set rep8
+     *
+     * @param string $rep8
+     *
+     * @return Questions
+     */
+    public function setRep8($rep8)
+    {
+        $this->rep8 = $rep8;
+
+        return $this;
+    }
+
+    /**
+     * Get rep8
+     *
+     * @return string
+     */
+    public function getRep8()
+    {
+        return $this->rep8;
+    }
+
+    /**
+     * Set rep9
+     *
+     * @param string $rep9
+     *
+     * @return Questions
+     */
+    public function setRep9($rep9)
+    {
+        $this->rep9 = $rep9;
+
+        return $this;
+    }
+
+    /**
+     * Get rep9
+     *
+     * @return string
+     */
+    public function getRep9()
+    {
+        return $this->rep9;
+    }
+
+    /**
+     * Set rep10
+     *
+     * @param string $rep10
+     *
+     * @return Questions
+     */
+    public function setRep10($rep10)
+    {
+        $this->rep10 = $rep10;
+
+        return $this;
+    }
+
+    /**
+     * Get rep10
+     *
+     * @return string
+     */
+    public function getRep10()
+    {
+        return $this->rep10;
+    }
+}

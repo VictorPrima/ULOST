@@ -1,0 +1,16 @@
+{% extends "UlostCoreBundle::layout.html.twig" %}
+
+{% block Core_body %}
+
+
+    <h1>Liste de vos emplois </h1>
+    <table>
+
+        <tr>
+            {{ render(controller("UlostMunicipaleBundle:Emploi:showEmploiByUser", {'id':user.id})) }}
+        </tr>
+
+
+    </table>
+
+{%  endblock %}

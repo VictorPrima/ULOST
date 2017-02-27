@@ -1,0 +1,23 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/index.html.twig #}
+
+{% extends "UlostObjectBundle::layout.html.twig" %}
+	{% block Core_body %}
+
+
+
+		<h1>Bienvenue sur l'interface du service {{ service.name }}</h1>
+		<h2>Vous avez le rôle de {{ emploi.role }}</h2>
+
+
+		{{ include('UlostMunicipaleBundle:Home:hex.html.twig') }}
+
+	<div class="banniere">
+		<p>
+			pour ajouter une ville, sous votre responsabilité,
+		</br>
+			veuillez contacter notre service
+		</p>
+	</div>
+	
+	{% endblock %}
+	

@@ -1,0 +1,20 @@
+{% for object in listObject %}
+<th>
+            {% if  object.image is defined and object.image is not empty  %}
+    <a href="{{ path('ulost_view_object', {'id': object.id} ) }}">
+                {{ render(controller("UlostObjectBundle:Object:showImageByObject", {'object_id': object.id})) }}
+    </a>
+            {% else %}  Pas encore d'image pour l'objet {{ object.typeObjet }}
+            {% endif %}
+
+        <div><a href="{{ path('ulost_view_object', {'id': object.id} ) }}" class="button">{{ object.typeObjet }}</a></div>
+
+</th>
+
+{% endfor %}
+<th>
+    <h3>
+        <a href="{{ path('ulost_add_object' ,{ 'id': id })}}" class="button">+</a>
+    </h3>
+</th>
+

@@ -1,0 +1,8 @@
+<div><button class="accordion">{{ category.name }}</button>
+
+<div class="panel">
+
+        {{ render(controller("UlostAnnonceBundle:Post:indexObjectByCategory", {'id': category.id, 'status':status})) }}
+
+</div>
+</div>

@@ -1,0 +1,25 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+ {% block Core_body %}
+     <h1>Modification du service {{ service.name }}</h1>
+     <a href="{{ path('ulost_view_service', {id:service.id}) }}" class="button">Retour aux Services </a>
+     <a href="{{ path('ulost_remove_service', {id:service.id}) }}" class="button">Supprimer le service </a>
+     <h3>Formulaire de Service</h3>
+
+
+     <div class="well">
+
+
+
+         {{ form_start(form) }}
+         {{ form_errors(form) }}
+         {{ form_row(form.name) }}
+
+
+
+         {{ form_end(form) }}
+
+     </div>
+
+
+
+ {% endblock %}

@@ -1,0 +1,9 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+ {% block Core_body %}
+    <div> <a href="{{ path('ulost_view_object', {'id':object.id}) }}" class="button">Retour à l'objet {{object.typeObjet}}</a> </div>
+     {{ include("UlostObjectBundle:Advert:formQuestion.html.twig") }}
+
+
+ {% endblock %}
+
+

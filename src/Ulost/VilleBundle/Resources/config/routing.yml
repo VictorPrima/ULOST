@@ -1,0 +1,40 @@
+ulost_ville_accueil:
+    path:     /
+    defaults: { _controller: UlostVilleBundle:Ville:index }
+
+city_suggest:
+    path: /suggest
+    defaults: { _controller: UlostVilleBundle:Ville:villeSuggest }
+
+
+city_search:
+    path: /search
+    defaults: { _controller: UlostVilleBundle:Ville:search }
+
+
+
+ulost_index_villeServiceRelation:
+    path : /indexVilleServiceRelation
+    defaults: { _controller: UlostVilleBundle:VilleServiceRelation:indexVilleServiceRelation}
+
+
+
+ulost_view_villeServiceRelation:
+    path : /viewVilleServiceRelation/{id}
+    defaults: { _controller: UlostVilleBundle:VilleServiceRelation:viewVilleServiceRelation}
+    requirements:
+          id:     \d+
+
+ulost_edit_villeServiceRelation:
+    path : /editVilleServiceRelation/{id}
+    defaults: { _controller: UlostVilleBundle:VilleServiceRelation:editVilleServiceRelation}
+    requirements:
+          id:     \d+
+
+
+
+ulost_remove_villeServiceRelation:
+    path : /removeVilleServiceRelation/{id}
+    defaults: { _controller: UlostVilleBundle:VilleServiceRelation:removeVilleServiceRelation}
+    requirements:
+          id:     \d+

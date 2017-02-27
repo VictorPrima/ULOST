@@ -1,0 +1,52 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/Parametre/index.html.twig #}
+
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+	{% block Municipale_body %}
+
+	{% for flash_message in app.session.flashbag.get('notice') %}
+		<div class="flash-notice">
+			{{ flash_message }}
+		</div>
+	{% endfor %}
+ <div class="banniere"> 
+	<p> Vous trouvez ici les parametres de votre compte </p> 
+ </div>
+ 
+ {% if employes is not empty %}
+ <h1> Les employés disponible </h1>
+	<table>
+		<tr>
+			<th> Nom </th>
+			<th> Prénom </th>
+		<tr>
+		{% for employe in employes %}
+		<tr>
+			<td> {{employe.nom }} </td>
+			<td> {{employe.prenom}} </td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endif %}
+
+<a href="{{ path('ulost_municipale_parametres_employe') }}" class="button"> Ajouter un Employé </a>
+	
+{% if partenaires is not empty %}
+	<h1> Les partenaires disponibles </h1>
+	<table>
+		<tr>
+			<th> Nom </th>
+			<th>Adresse </th>
+			<th>telephone </th>
+		<tr>
+		{% for partenaire in partenaires %}
+		<tr>
+			<td> {{partenaire.nom }} </td>
+			<td> {{partenaire.adresse}} </td>
+			<td> {{partenaire.phone}} </td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% endif %}
+
+	<a href="{{ path('ulost_municipale_parametres_partenaire') }}" class="button"> Ajouter un partenaire</a>
+	{% endblock %}

@@ -1,0 +1,33 @@
+{# UlostCoreBundle/Resources/views/layout.html.twig #}
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+	{% if app.user %}
+
+		Connecté en tant que  {{ app.user.username }}
+
+	{% endif %}
+    {% for flash_message in app.session.flashbag.get('notice') %}
+		<div class="flash-notice">
+            {{ flash_message }}
+		</div>
+    {% endfor %}
+
+
+	{% block Core_body %}
+    {% endblock %}
+
+	
+	{% block javascripts %}
+		{% javascripts '@UlostCoreBundle/Resources/public/js/*' %}
+			<script src="{{ asset_url }}" type="text/javascript" ></script>
+		{% endjavascripts %}
+	{% endblock %}
+
+	
+	
+	{% endblock %}
+	
+	{% block footer %}
+    {% endblock %}
+   

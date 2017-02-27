@@ -1,0 +1,31 @@
+{# Ulost/AnnonceBundle/Resources/views/Home/contact.html.twig #}
+
+
+<div class="envelope_contact">	
+<div class="overlay" id="contact">
+<h1 class="text_blanc"> Fiche de contact </h1>
+		{{ form_start(form, {'attr': {'id': 'contacte'}}) }}
+			<div class="half left cf">
+				{{ form_label(form.name, 'Votre nom', {'id': 'name'}) }}
+				{{ form_widget(form.name, {'id': 'name'}) }}
+				
+				{{ form_label(form.mail, 'Votre mail', { 'id': 'email'}) }}
+				{{ form_widget(form.mail, {'id': 'email'}) }}
+			</div>
+			<div class="half right cf">
+				{{ form_label(form.message, 'Votre message', { 'id': 'msg'}) }}
+				{{ form_widget(form.message, { 'id': 'input-message'}) }}
+			</div>
+			</br>
+			{{ form_widget(form.save, { 'id': 'send'}) }}
+			
+			{{ form_end(form) }} 		
+		
+</div>
+<a href="#contact">
+	  <div class="circle">
+		<div class="envelope-top"></div>
+		<div class="envelope"></div>
+	  </div>
+	</a>
+</div>

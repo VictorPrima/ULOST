@@ -1,0 +1,47 @@
+
+
+
+    <h3>{{ "Nombre total d'emplois : " }}{{  pagination.getTotalItemCount }}</h3>
+
+
+    <div>
+        <table>
+
+            <tr>
+                {# sorting of properties based on query components #}
+
+                <th{% if pagination.isSorted('emploi.role') %} class="sorted"{% endif %}>
+                    {{ knp_pagination_sortable(pagination, 'Role', 'emploi.role') }}
+                </th>
+                <th{% if pagination.isSorted('emploi.user.username') %} class="sorted"{% endif %}>
+                    {{ knp_pagination_sortable(pagination, 'Nom', 'emploi.user.username') }}
+                </th>
+                <th{% if pagination.isSorted('emploi.service.name') %} class="sorted"{% endif %}>
+                    {{ knp_pagination_sortable(pagination, 'Nom', 'emploi.service.name') }}
+                </th>
+            </tr>
+
+            {# table body #}
+            {% for emploi in pagination %}
+                <tr {% if loop.index is odd %}class="color"{% endif %}>
+                    <td>
+
+                        <a href="{{ path('ulost_edit_emploi', {'id':emploi.id}) }}" class="button">{{ emploi.role }}</a>
+
+                    </td>
+                    <td>
+                        {{ emploi.user.username }}
+                    </td>
+                    <td>
+                        <a href="{{ path('ulost_service_accueil', {'id':emploi.service.id}) }}" class="button">{{ emploi.service.name }}</a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+        </table>
+    </div>
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>

@@ -1,0 +1,33 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/Advert/last.html.twig #}
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+{% block Municipale_body %}
+
+
+<h1>Enregistrement de l'objet </h1>
+
+
+   
+   	
+	
+
+<div class="card">
+	<form action="{{ path('ulost_depot_annonce_save') }}" method="POST">
+		<div class="controls">
+			<h1>quel secteur ?</h1>
+			<div class="dropdown">
+			<select class="dropdown-select" name="municipale">
+			{% for municipale in municipales %}
+				<option value="{{municipale.codepostal}}"> 
+				{{ municipale.ville}} : {{municipale.codePostal}}
+				</option>
+			{% endfor %}
+			</select>
+		</div>
+		</div>
+	<button type="submit" name="validate" value="ok"> OK </button>
+	</form>
+</div>
+   
+   
+
+{% endblock %}

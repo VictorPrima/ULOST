@@ -1,0 +1,43 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+{% block Core_body %}
+
+    <h1>Liste des objets<h1>
+
+
+        <h3>{{ "Nombre total de catégorie : " }}{{  pagination.getTotalItemCount }}</h3>
+    <a href="{{ path('ulost_add_category') }}" class="button">Ajouter une catégorie</a>
+
+    <div>
+
+
+
+        {# sorting of properties based on query components #}
+
+        <div {% if pagination.isSorted('category.name') %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Nom', 'category.name') }}
+        </div>
+
+
+        {# table body #}
+        {% for category in pagination %}
+            <div {% if loop.index is odd %}class="color"{% endif %}>
+
+                    <div>
+
+                    <h1><a href="{{ path('ulost_edit_category', {'id':category.id}) }}" class="button">{{ category.name }}</a></h1>
+                    </div>
+
+                <table>
+
+                {{ render(controller("UlostObjectBundle:Object:indexObjectByCategory", {'id': category.id})) }}
+                </table>
+            </div>
+        {% endfor %}
+
+
+    </div>
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

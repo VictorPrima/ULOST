@@ -1,0 +1,22 @@
+
+	
+<div id="menu_accueil">
+<a href="#menu" id="toggle"><span></span></a>
+
+<div id="menu">
+	<ul>
+		<li><a href="{{ path('ulost_municipale_homepage') }}">Accueil</a></li>
+		<li><a href="{{ path('ulost_municipale_stockpage') }}">Gestion des stocks</a></li>
+		<li><a href="{{ path('ulost_municipale_homepage') }}">Statistiques </a></li>
+		<li><a href="{{ path('ulost_municipale_annonces_ville') }}">Toutes les annonces</a></li>
+		<li><a href="{{ path('ulost_municipale_depot_annonce_ville', {'perdu_trouve': "perdu"}) }}">Objet Perdu </a></li>
+		<li><a href="{{ path('ulost_municipale_depot_annonce_ville', {'perdu_trouve': "trouvé"}) }}"> Objet Trouvé </a> </li>
+		<li><a href="{{ path('ulost_municipale_parametres') }}"> Parametres du service </a> </li>
+		
+		{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+			<li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+		{% endif %}
+		
+	</ul>
+</div>
+</div>

@@ -1,0 +1,10 @@
+{# src/Ulost/AdminBundle/Resources/views/Objet/index.html.twig #}
+{% extends "UlostAnnonceBundle::layout.html.twig" %}
+
+{% block Core_body %}
+    <h2> voir la liste des annonces </h2>
+
+
+    {{ render(controller("UlostAnnonceBundle:Annonce:showAllAnnoncePublished")) }}
+
+{% endblock %}

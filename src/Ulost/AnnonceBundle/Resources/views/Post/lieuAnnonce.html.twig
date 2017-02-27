@@ -1,0 +1,34 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+{% block Core_body %}
+
+    <div class="recapitulatif">
+        <p>
+            <strong>Recapitulatif de l'annonce </strong>
+            {% if annonce.status is defined and annonce.status is not empty %} ( {{ annonce.status }} )
+            {% endif %}
+        </p>
+        {% if annonce.object is defined and annonce.object is not empty %}
+            {% if  annonce.imageAnnonce is defined and annonce.imageAnnonce is not empty %}
+                <div>
+                    {{ render(controller("UlostAnnonceBundle:Annonce:showImageByAnnonce", {'annonce': annonce})) }}
+                </div>
+                    {% endif %}
+            {{ annonce.object.typeObjet }}
+            {{ annonce.object.category.name }}
+        {% endif %}
+
+
+        <p>
+            {% for reponse in annonce.reponses %}
+        <div>
+            {{ reponse.question.name }}{{ " : " }} {{ render(controller("UlostAnnonceBundle:Annonce:showReponse", {"reponse":reponse})) }}
+        </div>
+        {% endfor %}
+        </p>
+    </div>
+    <form action="{{ path('ulost_annonce_recap') }}" method="POST">
+        {{ include("UlostVilleBundle:Ville:index.html.twig") }}
+        <button type="submit" name="validate" value="ok"> Enregistrer</button>
+    </form>
+
+{% endblock %}

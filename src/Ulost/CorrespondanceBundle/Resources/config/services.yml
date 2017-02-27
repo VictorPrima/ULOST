@@ -1,0 +1,7 @@
+services:
+ AnnonceAction:
+        class: Ulost\AnnonceBundle\Controller\AnnonceController
+        calls:
+                    - [setContainer, ["@service_container"]]
+
+

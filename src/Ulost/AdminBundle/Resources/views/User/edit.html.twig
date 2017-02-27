@@ -1,0 +1,15 @@
+{% extends "UlostAdminBundle::layout.html.twig" %}
+
+{% block Core_body %}
+
+    <a href="{{ path('ulost_index_users') }}" class="button">Retour</a>
+    </br>
+<div><h3>Modifier le rôle de l'utilisateur {{ user.username }}</h3></div>
+
+<div class="well">
+
+    {{ form(form) }}
+
+</div>
+
+{% endblock %}

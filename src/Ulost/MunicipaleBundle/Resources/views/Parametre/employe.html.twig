@@ -1,0 +1,35 @@
+{# src/Ulost/MunicipaleBundle/Resources/views/Parametre/index.html.twig #}
+
+{% extends "UlostMunicipaleBundle::layout.html.twig" %}
+	{% block Municipale_body %}
+
+	{% for flash_message in app.session.flashbag.get('notice') %}
+		<div class="flash-notice">
+			{{ flash_message }}
+		</div>
+	{% endfor %}
+ <div class="banniere"> 
+	<p> Vous pouvez ajouter ici un employé pour ajouter une annonce </p> 
+ </div>
+ 
+	<a href="{{ path('ulost_municipale_parametres') }}" class="button"> Retour aux paramètres </a>
+
+
+
+ <div class="card"> <div class="controls">
+	{{ form_start(form, {'attr': {'id': 'employe'}}) }}
+		<h1 class="text_blanc"> Ajouter un employé </h1>
+		<div class="half left cf">
+			{{ form_label(form.nom, 'le nom', {'id': 'nom'}) }}
+			{{ form_widget(form.nom, {'id': 'nom'}) }}
+				
+			{{ form_label(form.prenom, 'le prenom', { 'id': 'prenom'}) }}
+			{{ form_widget(form.prenom, {'id': 'prenom'}) }}
+		</div>
+	</br>
+		{{ form_widget(form.save, { 'id': 'send'}) }}
+		{{ form_end(form) }} 
+</div>
+</div>
+ 
+	{% endblock %}

@@ -1,0 +1,43 @@
+{# src/Ulost/AdminBundle/Resources/views/Objet/index.html.twig #}
+
+{% extends "UlostCoreBundle::layout.html.twig" %}
+	{% block Core_body %}
+
+{% if annonce.archived == true %}
+<h3>Cette annonce a été archivée le {{ annonce.archivedAt|date('d/m/Y') }}</h3>
+{% endif %}
+
+       {{ include('UlostAnnonceBundle:Advert:viewAnnonce.html.twig') }}
+<div>
+
+
+
+    </br>
+
+        {% if annonce.archived == false %}
+    <div>
+        <a href="{{ path("ulost_Correspondance1", {'id': annonce.id}) }}" class="button">Chercher les correspondances</a>
+
+    </div>
+</div>
+
+
+
+
+        <div>
+            <a href="{{ path('ulost_archiver_annonce', {"id":annonce.id}) }}" class="button">Archiver l'annonce</a>
+        </div>
+{% endif %}
+
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <div>
+                <a href="{{ path('ulost_remove_one_annonce', {"id":annonce.id}) }}" class="button">Supprimer l'annonce</a>
+            </div>
+        {% endif %}
+    {% endblock %}
+
+
+
+
+

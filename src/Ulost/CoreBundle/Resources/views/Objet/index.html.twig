@@ -1,0 +1,21 @@
+{# src/Ulost/AdminBundle/Resources/views/Objet/index.html.twig #}
+
+{% extends "UlostCoreBundle::layout.html.twig" %}
+	{% block Core_body %}
+
+<h2> creer un objet </h2>
+<h4> il faut au moins une question </h4>
+{{ render(controller("UlostCoreBundle:Objet:addObjet")) }}
+
+
+<h2> voir la liste des objets </h2>
+{{ render(controller("UlostCoreBundle:Objet:showObjet")) }}
+
+
+
+
+
+
+
+
+{% endblock %}

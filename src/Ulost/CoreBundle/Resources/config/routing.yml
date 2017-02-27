@@ -1,0 +1,27 @@
+# ici l'accueil avec les ouvertures sur les autres pages
+ulost_contact:
+    path:     /contact
+    defaults: { _controller: UlostCoreBundle:Home:contactpage }
+
+ulost_partenaire:
+    path:     /partenaire
+    defaults: { _controller: UlostCoreBundle:Home:partenaire }
+
+ulost_faq:
+    path:     /faq
+    defaults: { _controller: UlostCoreBundle:Home:faqpage }
+
+ulost_home:
+    path:     /home
+    defaults: { _controller: UlostCoreBundle:Home:index }
+
+
+ulost_test:
+    path:     /test
+    defaults: { _controller: UlostCoreBundle:Home:test }
+
+ulost_annonce:
+    resource: "@UlostCoreBundle/Resources/config/advert.yml"
+    prefix:   /annonce
+
+

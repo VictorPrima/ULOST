@@ -1,0 +1,112 @@
+<?php
+
+namespace Ulost\ObjectBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Category
+ *
+ * @ORM\Table(name="category")
+ * @ORM\Entity(repositoryClass="Ulost\ObjectBundle\Repository\CategoryRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class Category
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Ulost\ObjectBundle\Entity\Object", mappedBy="category", cascade={"persist", "remove"})
+     **/
+
+    private $objects;
+
+
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getObjects()
+    {
+        return $this->objects;
+    }
+
+
+    /**
+     * @param Object $object
+     * @return $this
+     */
+    public function addObject(Object $object)
+    {
+        $this->objects[] = $object;
+        $object->setCategory($this);
+        return $this;
+    }
+
+    /**
+     * @param Object $object
+     */
+    public function removeObject(Object $object)
+    {
+        $this->objects->removeElement($object);
+    }
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->objects = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

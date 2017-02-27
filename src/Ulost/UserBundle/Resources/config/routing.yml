@@ -1,0 +1,35 @@
+ulost_user_login:
+    path: /login
+    defaults: {_controller: UlostUserBundle:Authentification:login}
+
+ulost_user_redirect_after_login:
+    path: /login
+    defaults: {_controller: UlostUserBundle:Home:redirectToServiceAfterLogin}
+
+ulost_user_logout:
+    path: /logout
+    defaults: {_controller: UlostUserBundle:Authentification:logout}
+
+ulost_user_register:
+    path: /register
+    defaults: {_controller: UlostUserBundle:Authentification:register}
+
+ulost_user_resetPassword:
+    path: /resetPassword
+    defaults: {_controller: UlostUserBundle:Authentification:resetPassword}
+    
+ulost_user_checkMail:
+    path: /checkMail
+    defaults: {_controller: UlostUserBundle:Authentification:checkMail}
+
+ulost_compte_save:
+    path:     /save
+    defaults: { _controller: UlostCoreBundle:Advert:save }
+
+ulost_annonce_save_all:
+    path:     /saveall
+    defaults: { _controller: UlostCoreBundle:Advert:saveAll }
+
+ulost_profil:
+    resource: "@UlostUserBundle/Resources/config/profil.yml"
+    prefix:   /profil

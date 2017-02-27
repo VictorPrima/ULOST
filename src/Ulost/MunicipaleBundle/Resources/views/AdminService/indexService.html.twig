@@ -1,0 +1,65 @@
+{% extends "UlostObjectBundle::layout.html.twig" %}
+{% block Core_body %}
+
+    <h1>Liste des Services<h1>
+
+
+        <h3>{{ "Nombre total de services : " }}{{  pagination.getTotalItemCount }}</h3>
+    <a href="{{ path('ulost_add_service') }}" class="button">Ajouter un service</a>
+
+    <div>
+    <table>
+
+    <tr>
+        {# sorting of properties based on query components #}
+
+        <th{% if pagination.isSorted('service.name') %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Nom', 'service.name') }}
+        </th>
+        <th{% if pagination.isSorted('service.ville.name') %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Ville', 'service.ville.name') }}
+        </th>
+        <th{% if pagination.isSorted('ville.departement.name') %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Departement', 'ville.departement.name') }}
+        </th>
+        <th>
+            {{ 'Nombre de villes gérées' }}
+        </th>
+        <th>
+            {{ 'Nombre d\'employés' }}
+        </th>
+
+
+    </tr>
+
+        {# table body #}
+        {% for service in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>
+
+                    <h5><a href="{{ path('ulost_view_service', {'id':service.id}) }}" class="button">{{ service.name }}</a></h5>
+
+                </td>
+                <td>
+                    {{ service.ville.name }}
+                </td>
+                <td>
+                    {{ service.ville.departement.name }}
+                </td>
+                <td>
+                    {{ render(controller('UlostMunicipaleBundle:Service:getNombreVilles', {'id': service.id} )) }}
+                </td>
+                <td>
+                    {{ render(controller('UlostMunicipaleBundle:Service:getNombreEmplois', {'id': service.id} )) }}
+                </td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+    </div>
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

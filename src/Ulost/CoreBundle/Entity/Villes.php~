@@ -1,0 +1,129 @@
+<?php
+
+namespace Ulost\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Villes
+ *
+ * @ORM\Table(name="villes")
+ * @ORM\Entity(repositoryClass="Ulost\CoreBundle\Repository\VillesRepository")
+ */
+class Villes
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville_departement", type="string", length=255)
+     */
+    private $villeDepartement;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville_nom_reel", type="string", length=255)
+     */
+    private $villeNomReel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville_code_postal", type="string", length=255)
+     */
+    private $villeCodePostal;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set villeDepartement
+     *
+     * @param string $villeDepartement
+     *
+     * @return Villes
+     */
+    public function setVilleDepartement($villeDepartement)
+    {
+        $this->villeDepartement = $villeDepartement;
+
+        return $this;
+    }
+
+    /**
+     * Get villeDepartement
+     *
+     * @return string
+     */
+    public function getVilleDepartement()
+    {
+        return $this->villeDepartement;
+    }
+
+    /**
+     * Set villeNomReel
+     *
+     * @param string $villeNomReel
+     *
+     * @return Villes
+     */
+    public function setVilleNomReel($villeNomReel)
+    {
+        $this->villeNomReel = $villeNomReel;
+
+        return $this;
+    }
+
+    /**
+     * Get villeNomReel
+     *
+     * @return string
+     */
+    public function getVilleNomReel()
+    {
+        return $this->villeNomReel;
+    }
+
+    /**
+     * Set villeCodePostal
+     *
+     * @param string $villeCodePostal
+     *
+     * @return Villes
+     */
+    public function setVilleCodePostal($villeCodePostal)
+    {
+        $this->villeCodePostal = $villeCodePostal;
+
+        return $this;
+    }
+
+    /**
+     * Get villeCodePostal
+     *
+     * @return string
+     */
+    public function getVilleCodePostal()
+    {
+        return $this->villeCodePostal;
+    }
+}
+
