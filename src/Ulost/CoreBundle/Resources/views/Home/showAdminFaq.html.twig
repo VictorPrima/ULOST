@@ -1,0 +1,23 @@
+<div>
+    <a href="{{ path('ulost_add_faq') }}" class="button">Ajouter une question</a>
+</div>
+
+<div>
+
+    {# table body #}
+    {% for Categoryfaq in pagination %}
+        <h1>
+            {{ Categoryfaq.name }}
+        </h1>
+        {% for faq in Categoryfaq.faqs %}
+            <h4>
+                {{ faq.question }}
+            </h4>
+            <h5>
+                {{ faq.reponse }}
+            </h5>
+        {% endfor %}
+    {% endfor %}
+
+
+</div>
