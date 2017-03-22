@@ -1,0 +1,97 @@
+<?php
+
+namespace Ulost\CoreBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+
+/**
+ * CategoryFAQ
+ *
+ * @ORM\Table(name="categoryfaq")
+ * @ORM\Entity(repositoryClass="Ulost\CoreBundle\Repository\CategoryFAQRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class CategoryFAQ
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     *
+     * @var string
+     *
+     * @ORM\Column(name="name", type="text", nullable=true)
+     *
+     */
+    private $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Ulost\CoreBundle\Entity\Faq", mappedBy="categoryFAQ", cascade={"persist", "remove"})
+     */
+    private $faqs;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFaqs()
+    {
+        return $this->faqs;
+    }
+
+
+    /**
+     * @param Faq $faq
+     * @return $this
+     */
+    public function addFaq(Faq $faq)
+    {
+        $this->faqs[] = $faq;
+        $faq->setCategoryFAQ($this);
+        return $this;
+    }
+
+
+
+}
