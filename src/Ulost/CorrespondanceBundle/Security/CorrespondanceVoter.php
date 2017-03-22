@@ -9,6 +9,7 @@ use Ulost\UserBundle\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
+use Doctrine\ORM\EntityManager;
 
 class CorrespondanceVoter extends Voter
 {
@@ -17,9 +18,12 @@ class CorrespondanceVoter extends Voter
     const EDIT = 'edit';
     private $decisionManager;
 
-    public function __construct(AccessDecisionManagerInterface $decisionManager)
+
+
+    public function __construct(AccessDecisionManagerInterface $decisionManager )
     {
         $this->decisionManager = $decisionManager;
+
     }
 
     protected function supports($attribute, $subject)
@@ -73,16 +77,14 @@ class CorrespondanceVoter extends Voter
         if ($this->canEdit($correspondance, $user)) {
             return true;
         }
-        $em = $this->getDoctrine()->getManager();
+
         $listEmplois=$user->getEmplois();
         $lost = array_values($correspondance->getLost()->toArray())[0];
         foreach ($listEmplois as $emploi){
         $service=$emploi->getService();
-            $listVille = $em
-                ->getRepository('UlostVilleBundle:Ville')
-                ->findVilleByService($service);
+            $listVille = $service->getVilles();
             foreach ($listVille as $ville)
-            if ($lost->getVille==$ville){
+            if ($lost->getVille()==$ville){
                 return true;
             }
         }

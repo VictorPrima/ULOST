@@ -257,4 +257,12 @@ class Service
         return $this->emplacements;
     }
 
+    public function getVilles(){
+        $listVillesServiceRelations=$this->getVilleServiceRelations();
+        $listVilles= array();
+        foreach ($listVillesServiceRelations as $villesServiceRelation){
+            $listVilles[]=$villesServiceRelation->getVille();
+        }
+        return $listVilles;
+    }
 }

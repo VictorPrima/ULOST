@@ -1,7 +1,10 @@
 services:
- AnnonceAction:
+    AnnonceAction:
         class: Ulost\AnnonceBundle\Controller\AnnonceController
         calls:
                     - [setContainer, ["@service_container"]]
 
 
+    my.helper.class:
+        class: Ulost\CoreBundle\Helper\MyHelper
+        arguments: [ @doctrine.orm.entity_manager ]
