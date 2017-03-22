@@ -1,0 +1,10 @@
+{% extends "UlostCoreBundle::layout.html.twig" %}
+ {% block Core_body %}
+
+     {{ include("UlostCoreBundle:Home:formFaq.html.twig") }}
+
+     <a href="{{ path('ulost_remove_faq',{'id':faq.id}) }}" class="button">Supprimer cette question  </a>
+
+ {% endblock %}
+
+
